@@ -12,7 +12,7 @@ title                    : "Apratim Mishra"
 title_separator          : "-"
 name                     : &name "Apratim Mishra"
 description              : &description "Graduate student in Information Sciences"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://apratim-mishra.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "apratim-mishra/apratim-mishra.github.io"
 
@@ -21,7 +21,7 @@ repository               : "apratim-mishra/apratim-mishra.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : linkedin.jpeg
+  avatar           : "linkedin.jpeg"
   name             : "Apratim Mishra"
   pronouns         : # example: "she/her"  
   bio              : "Graduate student in Information Sciences"
@@ -32,7 +32,7 @@ author:
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : ""
+  googlescholar    : "https://scholar.google.com/citations?user=J5nY6rEAAAAJ&hl=en"
   impactstory      : # URL
   orcid            : ""
   pubmed           : ""
@@ -58,7 +58,7 @@ author:
   lastfm           : # Username
   linkedin         : "https://www.linkedin.com/in/apratim94/"
   mastodon         : # URL
-  medium           : # URL
+  medium           : "https://medium.com/@apratim941208"
   pinterest        : # Username
   soundcloud       : # Username
   steam            : # Username

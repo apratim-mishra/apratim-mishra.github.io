@@ -9,6 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
+Test
 Education
 ======
 * Ph.D in Version Control Theory, GitHub University, 2018 (expected)
