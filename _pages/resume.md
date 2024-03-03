@@ -20,33 +20,28 @@ See resume at [resume](https://apratim-mishra.github.io/files/Resume_Apratim_.pd
 
 # Work Experience
 
-### AstraZeneca, Maryland, Illinois
-**Data Science Intern**  
+### Data Science Intern at AstraZeneca, Maryland, Illinois
 *May 2023 – August 2023*
 - Utilized protein language models (PLMs) and graph neural networks (GNNs) to derive insights, explain relevant protein features, and predict complex biological behaviors, significantly improving modeling characteristics.
 - Developed quantized deep learning models and improved model architecture to decrease computational and memory footprint and facilitate multi-GPU scalability for faster inference times.
 
-### The Cline Centre for Advanced Social Research, Champaign, Illinois
-**Graduate NLP Programmer**  
+### Graduate NLP Programmer at The Cline Centre for Advanced Social Research, Champaign, Illinois
 *May 2021 – August 2021*
 - Engineered an NLP pipeline for quotation extraction and entity classification leveraging tools like spaCy and Stanford CoreNLP.
 - Implemented testing strategies, evaluation metrics, and documentation updates.
 - Fine-tuned transformer models like Bert and XLNet for precise quote classification, enhancing evaluation accuracy by focusing on 'span' matching.
 
-### Reliable Power Alternatives Corporation, Garden City, New York
-**Energy Data Analyst**  
+### Energy Data Analyst at Reliable Power Alternatives Corporation, Garden City, New York 
 *Nov 2018 – Aug 2019*
 - Optimized data retrieval using SQL and developed Python-based Machine Learning pipelines with PySpark and scikit-learn, achieving a 15% cost reduction for clients.
 - Supported model testing and deployment using Flask, providing clients with reports on key performance parameters.
 
-### Delaware Army National Guard, Wilmington, Delaware
-**Research Intern**  
+### Research Intern at Delaware Army National Guard, Wilmington, Delaware
 *September 2017 – January 2018*
 - Analyzed energy load trends using Python by employing models like Arima, XGBoost, LGBMBoost, and LSTMs.
 - Performed one-sample and two-sample statistical tests to verify data integrity for clients and benchmark outcomes.
 
-### NYC Department of Citywide Administrative Services, New York City, New York
-**Energy Efficiency Intern**  
+### Energy Efficiency Intern at NYC Department of Citywide Administrative Services, New York City, New York
 *June 2017- August 2017*
 - Developed an interactive dashboard in Tableau to visualize core business KPIs based on cost savings.
 
@@ -72,11 +67,11 @@ See resume at [resume](https://apratim-mishra.github.io/files/Resume_Apratim_.pd
 - **Scheduling**: Slurm
 
 
-Publications
+<!-- Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 <!-- Talks
 ======
