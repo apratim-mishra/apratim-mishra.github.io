@@ -21,7 +21,7 @@ repository               : "apratim-mishra/apratim-mishra.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "linkedin.jpeg"
+  avatar           : linkedin.jpeg
   name             : "Apratim Mishra"
   pronouns         : # example: "she/her"  
   bio              : "Graduate student in Information Sciences"
