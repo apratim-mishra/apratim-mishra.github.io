@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Apratim Mishra"
 title_separator          : "-"
 name                     : &name "Apratim Mishra"
-description              : &description "Graduate student in Information Sciences at the University of Illinois - Urbana Champaign"
+description              : &description "Graduate student in Information Sciences"
 url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "apratim-mishra/apratim-mishra.github.io"
@@ -26,7 +26,7 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Graduate student in Information Sciences"
   location         : "Champaign, IL"
-  employer         : "University of Illinois - Urbana Champaign"
+  employer         : "UIUC"
   uri              : # URL
   email            : "apratim941208@gmail.com" 
 
