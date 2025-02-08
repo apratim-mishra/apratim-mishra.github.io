@@ -9,7 +9,7 @@ redirect_from:
 
 Hello!
 
-My name is Apratim and I am currently a Ph.D. candidate in Information sciences at the University of Illinois at Urbana-Champaign. I am interested in machine learning and natural language processing(NLP) applications, and am always looking for collaborations in projects.
+My name is Apratim, and I am currently a Ph.D. candidate in Information sciences at the University of Illinois at Urbana-Champaign. I am interested in machine learning and natural language processing(NLP) applications and always look for project collaborations.
 
 
 Contact me at: [apratim941208@gmail.com](mailto:apratim941208@gmail.com)
