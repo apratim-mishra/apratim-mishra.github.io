@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-See resume at [resume](https://apratim-mishra.github.io/files/Resume_Apratim_.pdf)
+See resume at [resume](https://apratim-mishra.github.io/files/Resume_Apratim.pdf)
 
 
 # Education
@@ -54,7 +54,7 @@ See resume at [resume](https://apratim-mishra.github.io/files/Resume_Apratim_.pd
 - **Optimization**: DeepSpeed, Accelerate
 
 ### Machine Learning & NLP
-- **Libraries**: scikit-learn, nltk, spaCy
+- **Libraries**: scikit-learn, Nltk, spaCy
 - **Models**: Experience with BERT, XLNet, GPT, LLama, Mistral, Phi
 
 ### Data & Visualization
