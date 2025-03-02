@@ -10,7 +10,7 @@ redirect_from:
 <div class="profile-container">
   <!-- <div class="profile-image">
     <img src="{{ site.baseurl }}/images/linkedin.png" alt="Apratim Mishra" class="profile-pic"> -->
-  </div>
+<!--   </div> -->
   <div class="profile-intro">
     <h1>Apratim Mishra</h1>
     <h2>PhD Candidate in Information Sciences</h2>
