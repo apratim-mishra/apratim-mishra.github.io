@@ -1,19 +1,285 @@
 ---
 permalink: /
-title: "About me"
+title: "About Me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-Hello!
+<div class="profile-container">
+  <div class="profile-image">
+    <img src="{{ site.baseurl }}/images/linkedin.png" alt="Apratim Mishra" class="profile-pic">
+  </div>
+  <div class="profile-intro">
+    <h1>Apratim Mishra</h1>
+    <h2>PhD Candidate in Information Sciences</h2>
+    <p class="university">University of Illinois at Urbana-Champaign</p>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> <a href="mailto:apratim941208@gmail.com">apratim941208@gmail.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com/apratim-mishra" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/apratim94/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/Yoichi_1208" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://medium.com/@apratim941208" target="_blank" class="social-link"><i class="fab fa-medium"></i></a>
+        <a href="https://scholar.google.com/citations?user=J5nY6rEAAAAJ&hl=en" target="_blank" class="social-link"><i class="fas fa-graduation-cap"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
 
-My name is Apratim, and I am currently a Ph.D. candidate in Information sciences at the University of Illinois at Urbana-Champaign. I am interested in machine learning and natural language processing(NLP) applications and always look for project collaborations.
+<div class="section-divider"></div>
 
+## About Me
 
-Contact me at: [apratim941208@gmail.com](mailto:apratim941208@gmail.com)
+Hello! I am a PhD candidate in Information Sciences at the University of Illinois at Urbana-Champaign. My research focuses on machine learning and natural language processing (NLP) applications. I'm passionate about developing innovative solutions to complex problems using advanced AI techniques.
 
+<div class="highlights-container">
+  <div class="highlight-box">
+    <h3><i class="fas fa-flask"></i> Research Interests</h3>
+    <ul>
+      <li>Natural Language Processing</li>
+      <li>Machine Learning</li>
+      <li>Deep Learning</li>
+      <li>Protein Language Models</li>
+      <li>Graph Neural Networks</li>
+    </ul>
+  </div>
+  
+  <div class="highlight-box">
+    <h3><i class="fas fa-laptop-code"></i> Key Skills</h3>
+    <ul>
+      <li>Python, R</li>
+      <li>PyTorch, TensorFlow</li>
+      <li>NLP & Text Analytics</li>
+      <li>Data Science</li>
+      <li>Model Optimization</li>
+    </ul>
+  </div>
+  
+  <div class="highlight-box">
+    <h3><i class="fas fa-award"></i> Achievements</h3>
+    <ul>
+      <li>Published research in top-tier conferences</li>
+      <li>Developed optimized deep learning models</li>
+      <li>Engineered NLP pipelines for real-world applications</li>
+      <li>Reduced computational costs by 15% through ML optimization</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+## Recent Projects
+
+<div class="projects-grid">
+  <div class="project-card">
+    <h3>Protein Language Models</h3>
+    <p>Utilized protein language models (PLMs) and graph neural networks (GNNs) to derive insights and predict complex biological behaviors.</p>
+    <div class="project-links">
+      <a href="{{ site.baseurl }}/portfolio/" class="btn btn--small">Learn More</a>
+    </div>
+  </div>
+  
+  <div class="project-card">
+    <h3>NLP Pipeline for Quotation Extraction</h3>
+    <p>Engineered an NLP pipeline for quotation extraction and entity classification leveraging tools like spaCy and Stanford CoreNLP.</p>
+    <div class="project-links">
+      <a href="{{ site.baseurl }}/portfolio/" class="btn btn--small">Learn More</a>
+    </div>
+  </div>
+  
+  <div class="project-card">
+    <h3>Energy Load Prediction</h3>
+    <p>Analyzed energy load trends using Python by employing models like Arima, XGBoost, LGBMBoost, and LSTMs.</p>
+    <div class="project-links">
+      <a href="{{ site.baseurl }}/portfolio/" class="btn btn--small">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+## Recent Publications
+
+<div class="publications-list">
+  {% for post in site.publications reversed limit:3 %}
+    {% include archive-single-cv.html %}
+  {% endfor %}
+  
+  <div class="view-all">
+    <a href="{{ site.baseurl }}/publications/" class="btn btn--primary">View All Publications</a>
+  </div>
+</div>
+
+<style>
+  .profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+  
+  .profile-image {
+    flex: 0 0 200px;
+    margin-right: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    max-width: 100%;
+    border: 3px solid #f2f3f3;
+  }
+  
+  .profile-intro {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .profile-intro h1 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    color: #494e52;
+  }
+  
+  .profile-intro h2 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    font-size: 1.5em;
+    color: #646769;
+  }
+  
+  .university {
+    font-style: italic;
+    margin-bottom: 1em;
+  }
+  
+  .contact-info {
+    margin-top: 1em;
+  }
+  
+  .social-links {
+    margin-top: 0.5em;
+  }
+  
+  .social-link {
+    display: inline-block;
+    margin-right: 1em;
+    font-size: 1.5em;
+    color: #494e52;
+    transition: color 0.3s ease;
+  }
+  
+  .social-link:hover {
+    color: #52adc8;
+  }
+  
+  .section-divider {
+    height: 1px;
+    background-color: #f2f3f3;
+    margin: 2em 0;
+  }
+  
+  .highlights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+    margin: 2em 0;
+  }
+  
+  .highlight-box {
+    background-color: #f8f9fa;
+    padding: 1.5em;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .highlight-box h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    color: #494e52;
+  }
+  
+  .highlight-box ul {
+    padding-left: 1.5em;
+    margin-bottom: 0;
+  }
+  
+  .highlight-box li {
+    margin-bottom: 0.5em;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+    margin: 2em 0;
+  }
+  
+  .project-card {
+    background-color: #fff;
+    padding: 1.5em;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #f2f3f3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .project-card h3 {
+    margin-top: 0;
+    color: #494e52;
+  }
+  
+  .project-links {
+    margin-top: 1em;
+  }
+  
+  .btn--small {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #52adc8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn--small:hover {
+    background-color: #3d8ca7;
+  }
+  
+  .publications-list {
+    margin: 2em 0;
+  }
+  
+  .view-all {
+    text-align: center;
+    margin-top: 2em;
+  }
+  
+  .btn--primary {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    background-color: #52adc8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn--primary:hover {
+    background-color: #3d8ca7;
+  }
+</style>
 
 <!-- This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
 
@@ -50,8 +316,4 @@ How to edit your site's GitHub repository
 Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
 
 Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png)
-
-For more info
-------
-More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful. -->
+![Editing a markdown file for a talk](/images/editing-talk.png) -->
