@@ -5,22 +5,79 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="https://scholar.google.com/citations?user=J5nY6rEAAAAJ&hl=en">my Google Scholar profile</a>.</div>
-{% endif %}
+<div class="scholar-container">
+  <div class="scholar-info">
+    <i class="fas fa-graduation-cap scholar-icon"></i>
+    <h2>Academic Publications</h2>
+    <p>You can find my articles on my Google Scholar profile.</p>
+    <div class="scholar-link">
+      <a href="https://scholar.google.com/citations?user=J5nY6rEAAAAJ&hl=en" target="_blank" class="btn btn--primary">
+        <i class="fas fa-external-link-alt"></i> View Google Scholar Profile
+      </a>
+    </div>
+  </div>
+</div>
 
+<style>
+  .scholar-container {
+    display: flex;
+    justify-content: center;
+    padding: 3em 1em;
+  }
+
+  .scholar-info {
+    background-color: #f8f9fa;
+    padding: 3em;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .scholar-icon {
+    font-size: 3em;
+    color: #52adc8;
+    margin-bottom: 0.5em;
+  }
+  
+  .scholar-info h2 {
+    margin-top: 0;
+    color: #494e52;
+    margin-bottom: 0.5em;
+  }
+  
+  .scholar-info p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0 auto 1.5em;
+    font-size: 1.1em;
+  }
+  
+  .scholar-link {
+    margin-top: 1.5em;
+  }
+  
+  .btn--primary {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    background-color: #52adc8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1em;
+  }
+  
+  .btn--primary:hover {
+    background-color: #3d8ca7;
+  }
+</style>
+
+{% comment %}
+Everything else has been commented out to simplify the page
 {% include base_path %}
-
-<div class="publications-intro">
-  <p>This page contains my academic publications, conference papers, and research articles. My research focuses on machine learning, natural language processing, and their applications in various domains.</p>
-</div>
-
-<div class="publication-filters">
-  <button class="filter-btn active" data-filter="all">All Publications</button>
-  <button class="filter-btn" data-filter="journal">Journal Articles</button>
-  <button class="filter-btn" data-filter="conference">Conference Papers</button>
-  <button class="filter-btn" data-filter="workshop">Workshop Papers</button>
-</div>
 
 <div class="publications-container">
   {% for post in site.publications reversed %}
@@ -82,32 +139,6 @@ author_profile: true
       console.error('Could not copy text: ', err);
     });
   }
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    var filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        var filter = this.getAttribute('data-filter');
-        
-        // Update active button
-        filterButtons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
-        this.classList.add('active');
-        
-        // Filter publications
-        var publications = document.querySelectorAll('.publication-item');
-        publications.forEach(function(pub) {
-          if (filter === 'all' || pub.getAttribute('data-type') === filter) {
-            pub.style.display = 'flex';
-          } else {
-            pub.style.display = 'none';
-          }
-        });
-      });
-    });
-  });
 </script>
 
 <style>
@@ -306,3 +337,4 @@ author_profile: true
     line-height: 1.6;
   }
 </style>
+{% endcomment %}

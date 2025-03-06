@@ -5,24 +5,41 @@ permalink: /talks/
 author_profile: true
 ---
 
+<div class="coming-soon">
+  <h2>Coming Soon</h2>
+  <p>This section is currently being updated. Check back later for a list of my talks and presentations.</p>
+</div>
+
+<style>
+  .coming-soon {
+    text-align: center;
+    padding: 3em 1em;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 2em 0;
+  }
+  
+  .coming-soon h2 {
+    margin-top: 0;
+    color: #52adc8;
+    margin-bottom: 0.5em;
+  }
+  
+  .coming-soon p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+</style>
+
+{% comment %}
+Everything else has been commented out to simplify the page
 {% include base_path %}
 
 <div class="talks-intro">
-  <p>This page lists my talks, presentations, and workshops at conferences, universities, and other venues. You can filter by type or view them on an interactive map.</p>
-</div>
-
-<div class="talks-controls">
-  <div class="talks-filters">
-    <button class="filter-btn active" data-filter="all">All Talks</button>
-    <button class="filter-btn" data-filter="conference">Conference</button>
-    <button class="filter-btn" data-filter="invited">Invited</button>
-    <button class="filter-btn" data-filter="workshop">Workshop</button>
-  </div>
-  
-  <div class="view-toggle">
-    <button class="view-btn active" data-view="list"><i class="fas fa-list"></i> List View</button>
-    <button class="view-btn" data-view="map"><i class="fas fa-map-marked-alt"></i> Map View</button>
-  </div>
+  <p>This page lists my talks, presentations, and workshops at conferences, universities, and other venues.</p>
 </div>
 
 <div id="talks-list-view" class="talks-view active">
@@ -61,145 +78,9 @@ author_profile: true
   </div>
 </div>
 
-<div id="talks-map-view" class="talks-view">
-  <div class="map-container">
-    <div id="map"></div>
-    <div class="map-loading">Loading map...</div>
-  </div>
-  
-  <div class="map-legend">
-    <div class="legend-item">
-      <span class="legend-marker conference"></span> Conference Talk
-    </div>
-    <div class="legend-item">
-      <span class="legend-marker invited"></span> Invited Talk
-    </div>
-    <div class="legend-item">
-      <span class="legend-marker workshop"></span> Workshop
-    </div>
-  </div>
-</div>
-
 <script>
   // Define empty talkMapData array as fallback
   var talkMapData = [];
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    // Filter functionality
-    var filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        var filter = this.getAttribute('data-filter');
-        
-        // Update active button
-        filterButtons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
-        this.classList.add('active');
-        
-        // Filter talks
-        var talks = document.querySelectorAll('.talk-item');
-        talks.forEach(function(talk) {
-          if (filter === 'all' || talk.getAttribute('data-type') === filter) {
-            talk.style.display = 'flex';
-          } else {
-            talk.style.display = 'none';
-          }
-        });
-      });
-    });
-    
-    // View toggle functionality
-    var viewButtons = document.querySelectorAll('.view-btn');
-    var views = document.querySelectorAll('.talks-view');
-    
-    viewButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        var view = this.getAttribute('data-view');
-        
-        // Update active button
-        viewButtons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
-        this.classList.add('active');
-        
-        // Show selected view
-        views.forEach(function(v) {
-          v.classList.remove('active');
-        });
-        document.getElementById('talks-' + view + '-view').classList.add('active');
-        
-        // Initialize map if map view is selected
-        if (view === 'map' && typeof initMap === 'function') {
-          initMap();
-        }
-      });
-    });
-  });
-  
-  // Map initialization (will be called when map view is selected)
-  var mapInitialized = false;
-  
-  function initMap() {
-    if (mapInitialized) return;
-    
-    // Check if the talkmap.js script is loaded
-    if (typeof L !== 'undefined') {
-      var map = L.map('map').setView([0, 0], 2);
-      
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-      
-      // Add markers for each talk location
-      if (talkMapData && talkMapData.length > 0) {
-        talkMapData.forEach(function(talk) {
-          var marker = L.marker([talk.latitude, talk.longitude])
-            .addTo(map)
-            .bindPopup('<strong>' + talk.title + '</strong><br>' + talk.date + '<br>' + talk.venue);
-            
-          // Add class based on talk type
-          if (marker._icon) {
-            marker._icon.classList.add('marker-' + talk.type);
-          }
-        });
-        
-        // Fit bounds to markers
-        var bounds = talkMapData.map(function(talk) {
-          return [talk.latitude, talk.longitude];
-        });
-        
-        if (bounds.length > 0) {
-          map.fitBounds(bounds);
-        }
-      } else {
-        document.querySelector('.map-loading').innerHTML = 'No location data available for talks.';
-      }
-      
-      mapInitialized = true;
-      document.querySelector('.map-loading').style.display = 'none';
-    } else {
-      // If Leaflet is not loaded, load it dynamically
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js';
-      script.integrity = 'sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==';
-      script.crossOrigin = '';
-      
-      var css = document.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css';
-      css.integrity = 'sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==';
-      css.crossOrigin = '';
-      
-      document.head.appendChild(css);
-      document.body.appendChild(script);
-      
-      script.onload = function() {
-        initMap();
-      };
-    }
-  }
 </script>
 
 <style>
@@ -442,7 +323,6 @@ author_profile: true
   }
 </style>
 
-{% comment %}
 {% for post in site.talks reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}

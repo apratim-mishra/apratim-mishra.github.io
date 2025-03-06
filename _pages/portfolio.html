@@ -5,119 +5,160 @@ permalink: /portfolio/
 author_profile: true
 ---
 
-{% include base_path %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-<div class="portfolio-intro">
-  <p>Welcome to my portfolio! Here you'll find a collection of my projects, research work, and other professional accomplishments. Each project includes a description, key technologies used, and relevant links.</p>
+<div class="portfolio-header">
+  <h1>My Project Portfolio</h1>
+  <p>A showcase of my professional and personal work in machine learning, NLP, and software development.</p>
 </div>
 
-<div class="portfolio-grid">
-  {% for post in site.portfolio %}
-    <div class="portfolio-item">
-      <div class="portfolio-content">
-        <h2 class="portfolio-title">{{ post.title }}</h2>
-        <div class="portfolio-excerpt">
-          {{ post.excerpt }}
-        </div>
-        <div class="portfolio-links">
-          <a href="{{ base_path }}{{ post.url }}" class="btn btn--primary">View Project</a>
-          {% if post.github %}
-            <a href="{{ post.github }}" class="btn btn--github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          {% endif %}
-          {% if post.demo %}
-            <a href="{{ post.demo }}" class="btn btn--demo" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  {% endfor %}
+<div class="section-divider"></div>
+
+<div class="portfolio-section">
+  <div class="section-header">
+    <h2><i class="fas fa-briefcase"></i> Professional Projects</h2>
+    <p>Projects completed during professional roles and academic research</p>
+  </div>
+
+  <div class="portfolio-grid">
+    {% assign professional = site.portfolio | where: "type", "professional" %}
+    {% for post in professional %}
+      {% include portfolio-item.html %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="portfolio-section">
+  <div class="section-header">
+    <h2><i class="fas fa-code"></i> Personal Projects</h2>
+    <p>Self-directed projects showcasing technical skills and interests</p>
+  </div>
+
+  <div class="portfolio-grid">
+    {% assign personal = site.portfolio | where: "type", "personal" %}
+    {% for post in personal %}
+      {% include portfolio-item.html %}
+    {% endfor %}
+  </div>
 </div>
 
 <style>
-  .portfolio-intro {
+  .portfolio-header {
+    text-align: center;
     margin-bottom: 2em;
+  }
+  
+  .portfolio-header h1 {
+    margin-bottom: 0.3em;
+    color: #333;
+  }
+  
+  .portfolio-header p {
+    color: #666;
     font-size: 1.1em;
-    line-height: 1.6;
-    color: #494e52;
+  }
+  
+  .section-divider {
+    height: 1px;
+    background-color: #f2f3f3;
+    margin: 2em 0;
+  }
+  
+  .section-header {
+    margin: 1em 0 1.5em;
+  }
+  
+  .section-header h2 {
+    font-size: 1.6em;
+    margin-bottom: 0.3em;
+    color: #333;
+  }
+  
+  .section-header p {
+    color: #666;
+    margin-top: 0;
   }
   
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2em;
+    margin: 1.5em 0;
   }
   
   .portfolio-item {
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border: 1px solid #f2f3f3;
     overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
   }
   
   .portfolio-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   }
   
-  .portfolio-content {
+  .portfolio-item.professional {
+    border-left: 3px solid #52adc8;
+  }
+  
+  .portfolio-item.personal {
+    border-left: 3px solid #78b638;
+  }
+  
+  .portfolio-item .content {
     padding: 1.5em;
   }
   
-  .portfolio-title {
+  .portfolio-item h2 {
     margin-top: 0;
-    margin-bottom: 0.75em;
-    font-size: 1.5em;
-    color: #494e52;
+    margin-bottom: 0.5em;
+    font-size: 1.3em;
   }
   
-  .portfolio-excerpt {
-    margin-bottom: 1.5em;
-    color: #646769;
-    line-height: 1.6;
-  }
-  
-  .portfolio-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75em;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border-radius: 3px;
+  .portfolio-item .excerpt {
+    color: #666;
     font-size: 0.9em;
-    transition: background-color 0.3s ease;
+    margin-bottom: 1em;
   }
   
-  .btn--primary {
-    background-color: #52adc8;
-    color: #fff;
+  .portfolio-item .tech-badge {
+    display: inline-block;
+    background-color: #f0f7f9;
+    color: #52adc8;
+    padding: 0.3em 0.8em;
+    border-radius: 20px;
+    font-size: 0.7em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
   }
   
-  .btn--primary:hover {
-    background-color: #3d8ca7;
+  .professional {
+    border-left: 3px solid #52adc8;
   }
   
-  .btn--github {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .btn--github:hover {
-    background-color: #000;
-  }
-  
-  .btn--demo {
-    background-color: #28a745;
-    color: #fff;
-  }
-  
-  .btn--demo:hover {
-    background-color: #218838;
+  .personal {
+    border-left: 3px solid #78b638;
   }
 </style>
+
+<!-- Include portfolio-item.html template for consistent styling -->
+{% raw %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Apply class to portfolio items based on type
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      if (item.getAttribute('data-type') === 'professional') {
+        item.classList.add('professional');
+      } else if (item.getAttribute('data-type') === 'personal') {
+        item.classList.add('personal');
+      }
+    });
+  });
+</script>
+{% endraw %}
 

@@ -14,7 +14,7 @@ name                     : &name "Apratim Mishra"
 description              : &description "Graduate student in Information Sciences looking for full-time opportunities"
 url                      : https://apratim-mishra.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "apratim-mishra/apratim-mishra.github.io"
+repository               : apratim-mishra
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -42,7 +42,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "https://github.com/apratim-mishra"
+  github           : apratim-mishra
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -56,15 +56,15 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "https://www.linkedin.com/in/apratim94/"
+  linkedin         : apratim94
   mastodon         : # URL
-  medium           : "https://medium.com/@apratim941208"
+  medium           : apratim941208
   pinterest        : # Username
   soundcloud       : # Username
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "https://twitter.com/Yoichi_1208"  # Replace this with your X / Twitter handle
+  twitter          : Yoichi_1208  # Replace this with your X / Twitter handle
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
