@@ -47,20 +47,21 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
   </div>
   
   <div class="highlight-box">
-    <h3><i class="fas fa-laptop-code"></i> Key Skills</h3>
+    <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
     <ul>
-      <li>Python, R</li>
-      <li>PyTorch, TensorFlow</li>
-      <li>NLP & Text Analytics</li>
-      <li>Data Science</li>
-      <li>Model Optimization</li>
+      <li><strong>Programming & Analytics:</strong> Python (pandas, NumPy, scikit-learn), R, SQL</li>
+      <li><strong>ML Frameworks:</strong> PyTorch, TensorFlow, Transformers, PyTorch Lightning, PyTorch Geometric</li>
+      <li><strong>Big Data & Cloud:</strong> AWS, PySpark, Hive, Snowflake, Ray</li>
+      <li><strong>DevOps & Tools:</strong> Linux, Git, Docker, DeepSpeed, Accelerate</li>
+      <li><strong>Visualization:</strong> Tableau, Power BI, Matplotlib, Seaborn</li>
+      <li><strong>ML Monitoring:</strong> Weights and Biases</li>
     </ul>
   </div>
   
   <div class="highlight-box">
     <h3><i class="fas fa-award"></i> Achievements</h3>
     <ul>
-      <li>Published research in top-tier conferences</li>
+      <li>Published research in top conferences</li>
       <li>Developed optimized deep learning models</li>
       <li>Engineered NLP pipelines for real-world applications</li>
       <li>Reduced computational costs by 15% through ML optimization</li>
