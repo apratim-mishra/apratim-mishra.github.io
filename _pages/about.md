@@ -8,23 +8,10 @@ redirect_from:
 ---
 
 <div class="profile-container">
-  <!-- <div class="profile-image">
-    <img src="{{ site.baseurl }}/images/linkedin.png" alt="Apratim Mishra" class="profile-pic"> -->
-<!--   </div> -->
   <div class="profile-intro">
     <h1>Apratim Mishra</h1>
     <h2>PhD Candidate in Information Sciences</h2>
     <p class="university">University of Illinois at Urbana-Champaign</p>
-    <div class="contact-info">
-      <p><i class="fas fa-envelope"></i> <a href="mailto:apratim941208@gmail.com">apratim941208@gmail.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/apratim-mishra" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/apratim94/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/Yoichi_1208" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-        <a href="https://medium.com/@apratim941208" target="_blank" class="social-link"><i class="fab fa-medium"></i></a>
-        <a href="https://scholar.google.com/citations?user=J5nY6rEAAAAJ&hl=en" target="_blank" class="social-link"><i class="fas fa-graduation-cap"></i></a>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -74,66 +61,55 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
 ## Projects
 
 <div class="section-header">
-  <h3><i class="fas fa-briefcase"></i> Professional Projects</h3>
-  <p>Projects completed during professional roles and internships</p>
+  <h3><i class="fas fa-briefcase fa-sm"></i> Professional Projects</h3>
 </div>
 
-<div class="projects-grid">
-  <div class="project-card professional">
-    <h3>Protein Language Models</h3>
+<div class="projects-list">
+  <div class="project-item professional">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Protein Language Models</h4>
     <p>Utilized protein language models (PLMs) and graph neural networks (GNNs) to derive insights and predict complex biological behaviors. Implemented optimized training pipelines with PyTorch for large-scale protein sequence analysis.</p>
-    <div class="project-links">
-      <a href="{{ site.baseurl }}/portfolio/" class="btn btn--small">Learn More</a>
-    </div>
+    <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
   </div>
   
-  <div class="project-card professional">
-    <h3>NLP Pipeline for Quotation Extraction</h3>
-    <p>Engineered an NLP pipeline for quotation extraction and entity classification leveraging tools like spaCy and Stanford CoreNLP. The system achieved 87% accuracy on complex news article datasets and significantly reduced manual processing time.</p>
-    <div class="project-links">
-      <a href="{{ site.baseurl }}/portfolio/" class="btn btn--small">Learn More</a>
-    </div>
+  <div class="project-item professional">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> NLP Pipeline for Quotation Extraction</h4>
+    <p>Engineered an NLP pipeline for quotation extraction and entity classification leveraging tools like spaCy and Stanford CoreNLP. The system achieved 87% accuracy on complex news article datasets.</p>
+    <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
   </div>
   
-  <div class="project-card professional">
-    <h3>Energy Load Prediction</h3>
-    <p>Analyzed energy load trends using Python by employing models like ARIMA, XGBoost, LightGBM, and LSTMs. Developed a predictive system that forecasts energy consumption patterns with 92% accuracy, helping optimize resource allocation.</p>
-    <div class="project-links">
-      <a href="{{ site.baseurl }}/portfolio/" class="btn btn--small">Learn More</a>
-    </div>
+  <div class="project-item professional">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Energy Load Prediction</h4>
+    <p>Analyzed energy load trends using Python by employing models like ARIMA, XGBoost, LightGBM, and LSTMs. Developed a predictive system that forecasts energy consumption patterns with 92% accuracy.</p>
+    <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
   </div>
 </div>
 
 <div class="section-header">
-  <h3><i class="fas fa-code"></i> Personal Projects</h3>
-  <p>Self-directed projects showcasing technical skills and interests</p>
+  <h3><i class="fas fa-code fa-sm"></i> Personal Projects</h3>
 </div>
 
-<div class="projects-grid">
-  <div class="project-card personal">
-    <h3>Audio App</h3>
-    <p>A Next.js application for audio processing and playback with modern UI and advanced features. Implements Web Audio API for real-time audio manipulation and provides an intuitive interface for users to manage their audio files.</p>
+<div class="projects-list">
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Audio App</h4>
+    <p>A Next.js application for audio processing and playback with modern UI and advanced features. Implements Web Audio API for real-time audio manipulation.</p>
     <div class="project-links">
-      <a href="https://github.com/apratim-mishra/audio-app" target="_blank" class="btn btn--small">GitHub</a>
-      <a href="{{ site.baseurl }}/portfolio/audio-app/" class="btn btn--small">Learn More</a>
+      <a href="https://github.com/apratim-mishra/audio-app" target="_blank" class="project-link">GitHub →</a>
     </div>
   </div>
   
-  <div class="project-card personal">
-    <h3>Expo v1</h3>
-    <p>An open-source framework for making universal native apps with React that runs on Android, iOS, and the web. Features cross-platform compatibility and optimized performance for mobile applications.</p>
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Expo v1</h4>
+    <p>An open-source framework for making universal native apps with React that runs on Android, iOS, and the web. Features cross-platform compatibility.</p>
     <div class="project-links">
-      <a href="https://github.com/apratim-mishra/Expov1" target="_blank" class="btn btn--small">GitHub</a>
-      <a href="{{ site.baseurl }}/portfolio/expov1/" class="btn btn--small">Learn More</a>
+      <a href="https://github.com/apratim-mishra/Expov1" target="_blank" class="project-link">GitHub →</a>
     </div>
   </div>
   
-  <div class="project-card personal">
-    <h3>ScenicBayMapper</h3>
-    <p>A mapping application for discovering and navigating to scenic locations around the Bay Area. Integrates with Google Maps API and features location-based recommendations and route optimization.</p>
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> ScenicBayMapper</h4>
+    <p>A mapping application for discovering and navigating to scenic locations around the Bay Area. Integrates with Google Maps API and features location-based recommendations.</p>
     <div class="project-links">
-      <a href="https://github.com/apratim-mishra/ScenicBayMapper" target="_blank" class="btn btn--small">GitHub</a>
-      <a href="{{ site.baseurl }}/portfolio/scenicbaymapper/" class="btn btn--small">Learn More</a>
+      <a href="https://github.com/apratim-mishra/ScenicBayMapper" target="_blank" class="project-link">GitHub →</a>
     </div>
   </div>
 </div>
@@ -254,56 +230,77 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
     margin-bottom: 0.5em;
   }
   
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5em;
-    margin: 2em 0;
+  .projects-list {
+    margin: 1.5em 0;
   }
   
-  .project-card {
+  .project-item {
+    margin-bottom: 1.5em;
+    padding: 1em 1.2em;
+    border-radius: 4px;
     background-color: #fff;
-    padding: 1.5em;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border: 1px solid #f2f3f3;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    border: 1px solid #eee;
   }
   
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  .project-item h4 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.1em;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   
-  .project-card h3 {
-    margin-top: 0;
-    color: #494e52;
-  }
-  
-  .project-card p {
+  .project-item h4 i {
     color: #666;
-    line-height: 1.5;
+    font-size: 0.7em;
   }
   
-  .project-links {
-    margin-top: 1.5em;
+  .project-item.professional h4 i {
+    color: #52adc8;
   }
   
-  .btn--small {
+  .project-item.personal h4 i {
+    color: #78b638;
+  }
+  
+  .project-item p {
+    margin: 0.5em 0;
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.4;
+  }
+  
+  .project-link {
     display: inline-block;
-    padding: 0.5em 1em;
-    background-color: #52adc8;
-    color: #fff;
+    margin-top: 0.5em;
+    color: #52adc8;
     text-decoration: none;
-    border-radius: 3px;
-    font-size: 0.8em;
-    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    transition: color 0.2s ease;
   }
   
-  .btn--small:hover {
-    background-color: #3d8ca7;
+  .project-link:hover {
+    color: #3d8ca7;
+    text-decoration: none;
+  }
+  
+  .section-header {
+    margin: 2em 0 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .section-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .section-header i {
+    color: #666;
+    font-size: 0.9em;
   }
   
   .publications-list {
@@ -363,55 +360,18 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
     border-left: 3px solid #78b638;
   }
   
-  .section-header {
-    margin: 2em 0 1em;
-  }
-  
-  .section-header h3 {
-    font-size: 1.4em;
-    margin-bottom: 0.3em;
-    color: #333;
-  }
-  
-  .section-header p {
-    color: #666;
-    margin-top: 0;
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .project-item {
+      padding: 1em;
+    }
+    
+    .project-item h4 {
+      font-size: 1em;
+    }
+    
+    .project-item p {
+      font-size: 0.9em;
+    }
   }
 </style>
-
-<!-- This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
-
-A data-driven personal website
-======
-Like many other Jekyll-based GitHub Pages templates, academicpages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
-
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over -- just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
-
-Getting started
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-
-Site-wide configuration
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
-
-Create content & metadata
-------
-For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
-
-**Markdown generator**
-
-I have also created [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual markdown files that will be properly formatted for the academicpages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the markdown files, then commit and push them to the GitHub repository.
-
-How to edit your site's GitHub repository
-------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
-
-Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png) -->

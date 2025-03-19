@@ -1,16 +1,16 @@
 # main links links
 main:
-  - title: "About"
-    url: /
-    
-  - title: "Resume"
-    url: /resume/
-  
   - title: "Portfolio"
     url: /portfolio/
     
   - title: "Publications"
     url: /publications/
+  
+  - title: "Resume"
+    url: /resume/
+    
+  - title: "About"
+    url: /
 
   - title: "Talks"
     url: /talks/    
