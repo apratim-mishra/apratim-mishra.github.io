@@ -5,7 +5,6 @@
 {% endif %}
 
 <div itemscope itemtype="http://schema.org/Person">
-
   <div class="author__avatar">
     {% if author.avatar contains "://" %}
     	<img src="{{ author.avatar }}" alt="{{ author.name }}">
@@ -24,43 +23,73 @@
     <ul class="author__urls social-icons">
       <!-- Essential Information -->
       {% if author.location %}
-        <li class="profile-info location">
-          <i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ author.location }}
+        <li class="profile-info">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <span>{{ author.location }}</span>
         </li>
       {% endif %}
 
       {% if author.employer %}
-        <li class="profile-info institution">
-          <i class="fas fa-university" aria-hidden="true"></i> {{ author.employer }}
+        <li class="profile-info">
+          <i class="fas fa-university" aria-hidden="true"></i>
+          <span>{{ author.employer }}</span>
         </li>
       {% endif %}
 
-      <!-- Primary Links -->
-      <div class="primary-links">
-        {% if author.email %}
-          <li><a href="mailto:{{ author.email }}" title="Email"><i class="fas fa-envelope"></i></a></li>
-        {% endif %}
-        
-        {% if author.googlescholar %}
-          <li><a href="{{ author.googlescholar }}" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a></li>
-        {% endif %}
+      <!-- Social Links -->
+      {% if author.email %}
+        <li class="social-link">
+          <a href="mailto:{{ author.email }}">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+          </a>
+        </li>
+      {% endif %}
+      
+      {% if author.googlescholar %}
+        <li class="social-link">
+          <a href="{{ author.googlescholar }}" target="_blank">
+            <i class="ai ai-google-scholar"></i>
+            <span>Google Scholar</span>
+          </a>
+        </li>
+      {% endif %}
 
-        {% if author.github %}
-          <li><a href="https://github.com/{{ author.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
-        {% endif %}
+      {% if author.github %}
+        <li class="social-link">
+          <a href="https://github.com/{{ author.github }}" target="_blank">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </li>
+      {% endif %}
 
-        {% if author.linkedin %}
-          <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-        {% endif %}
+      {% if author.linkedin %}
+        <li class="social-link">
+          <a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      {% endif %}
 
-        {% if author.twitter %}
-          <li><a href="https://twitter.com/{{ author.twitter }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-        {% endif %}
+      {% if author.twitter %}
+        <li class="social-link">
+          <a href="https://twitter.com/{{ author.twitter }}" target="_blank">
+            <i class="fab fa-twitter"></i>
+            <span>Twitter</span>
+          </a>
+        </li>
+      {% endif %}
 
-        {% if author.medium %}
-          <li><a href="https://medium.com/@{{ author.medium }}" target="_blank" title="Medium"><i class="fab fa-medium"></i></a></li>
-        {% endif %}
-      </div>
+      {% if author.medium %}
+        <li class="social-link">
+          <a href="https://medium.com/@{{ author.medium }}" target="_blank">
+            <i class="fab fa-medium"></i>
+            <span>Medium</span>
+          </a>
+        </li>
+      {% endif %}
     </ul>
   </div>
 </div>

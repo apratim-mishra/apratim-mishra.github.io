@@ -5,145 +5,187 @@ permalink: /portfolio/
 author_profile: true
 ---
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<div class="portfolio-header">
-  <h1>My Project Portfolio</h1>
-  <p>A showcase of my professional and personal work in machine learning, NLP, and software development.</p>
-</div>
-
-<div class="section-divider"></div>
-
-<div class="portfolio-section">
-  <div class="section-header">
-    <h2><i class="fas fa-briefcase"></i> Professional Projects</h2>
-    <p>Projects completed during professional roles and academic research</p>
+<div class="portfolio-container">
+  <div class="portfolio-header">
+    <h1>Portfolio</h1>
+    <p>Machine Learning • NLP • Software Development</p>
   </div>
 
-  <div class="portfolio-grid">
-    {% assign professional = site.portfolio | where: "type", "professional" %}
-    {% for post in professional %}
-      {% include portfolio-item.html %}
-    {% endfor %}
-  </div>
-</div>
+  <!-- Professional Projects -->
+  <section class="portfolio-section">
+    <h2><i class="fas fa-briefcase fa-sm"></i> Professional Work</h2>
+    <div class="portfolio-grid">
+      {% assign professional = site.portfolio | where: "type", "professional" %}
+      {% for post in professional %}
+        <article class="portfolio-card professional">
+          <div class="card-content">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt }}</p>
+            <div class="tech-tags">
+              {% for tech in post.technologies limit:4 %}
+                <span class="tag">{{ tech }}</span>
+              {% endfor %}
+            </div>
+            <div class="card-links">
+              {% if post.github_link %}
+                <a href="{{ post.github_link }}" class="link-github" target="_blank">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              {% endif %}
+              <a href="{{ post.url | relative_url }}" class="link-details">Details →</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
 
-<div class="section-divider"></div>
-
-<div class="portfolio-section">
-  <div class="section-header">
-    <h2><i class="fas fa-code"></i> Personal Projects</h2>
-    <p>Self-directed projects showcasing technical skills and interests</p>
-  </div>
-
-  <div class="portfolio-grid">
-    {% assign personal = site.portfolio | where: "type", "personal" %}
-    {% for post in personal %}
-      {% include portfolio-item.html %}
-    {% endfor %}
-  </div>
+  <!-- Personal Projects -->
+  <section class="portfolio-section">
+    <h2><i class="fas fa-code fa-sm"></i> Personal Projects</h2>
+    <div class="portfolio-grid">
+      {% assign personal = site.portfolio | where: "type", "personal" %}
+      {% for post in personal %}
+        <article class="portfolio-card personal">
+          <div class="card-content">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt }}</p>
+            <div class="tech-tags">
+              {% for tech in post.technologies limit:4 %}
+                <span class="tag">{{ tech }}</span>
+              {% endfor %}
+            </div>
+            <div class="card-links">
+              {% if post.github_link %}
+                <a href="{{ post.github_link }}" class="link-github" target="_blank">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              {% endif %}
+              <a href="{{ post.url | relative_url }}" class="link-details">Details →</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
 </div>
 
 <style>
-  .portfolio-header {
-    text-align: center;
-    margin-bottom: 2em;
-  }
-  
-  .portfolio-header h1 {
-    margin-bottom: 0.3em;
-    color: #333;
-  }
-  
-  .portfolio-header p {
-    color: #666;
-    font-size: 1.1em;
-  }
-  
-  .section-divider {
-    height: 1px;
-    background-color: #f2f3f3;
-    margin: 2em 0;
-  }
-  
-  .section-header {
-    margin: 1em 0 1.5em;
-  }
-  
-  .section-header h2 {
-    font-size: 1.6em;
-    margin-bottom: 0.3em;
-    color: #333;
-  }
-  
-  .section-header p {
-    color: #666;
-    margin-top: 0;
-  }
-  
+.portfolio-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.portfolio-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.portfolio-section {
+  margin: 2rem 0;
+}
+
+.portfolio-section h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-content {
+  padding: 1.2rem;
+}
+
+.card-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.tech-tags {
+  margin: 0.8rem 0;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  margin: 0 0.3rem 0.3rem 0;
+  background: #f5f5f5;
+  border-radius: 12px;
+  color: #666;
+}
+
+.card-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.link-github, .link-details {
+  color: #555;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.link-github:hover, .link-details:hover {
+  color: #000;
+}
+
+.professional {
+  border-left: 3px solid #52adc8;
+}
+
+.personal {
+  border-left: 3px solid #78b638;
+}
+
+@media (max-width: 768px) {
   .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2em;
-    margin: 1.5em 0;
+    grid-template-columns: 1fr;
   }
-  
-  .portfolio-item {
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-  
-  .portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  
-  .portfolio-item.professional {
-    border-left: 3px solid #52adc8;
-  }
-  
-  .portfolio-item.personal {
-    border-left: 3px solid #78b638;
-  }
-  
-  .portfolio-item .content {
-    padding: 1.5em;
-  }
-  
-  .portfolio-item h2 {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    font-size: 1.3em;
-  }
-  
-  .portfolio-item .excerpt {
-    color: #666;
-    font-size: 0.9em;
-    margin-bottom: 1em;
-  }
-  
-  .portfolio-item .tech-badge {
-    display: inline-block;
-    background-color: #f0f7f9;
-    color: #52adc8;
-    padding: 0.3em 0.8em;
-    border-radius: 20px;
-    font-size: 0.7em;
-    margin-right: 0.5em;
-    margin-bottom: 0.5em;
-  }
-  
-  .professional {
-    border-left: 3px solid #52adc8;
-  }
-  
-  .personal {
-    border-left: 3px solid #78b638;
-  }
+}
 </style>
 
 <!-- Include portfolio-item.html template for consistent styling -->
