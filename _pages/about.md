@@ -26,22 +26,21 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
     <h3><i class="fas fa-flask"></i> Research Interests</h3>
     <ul>
       <li>Natural Language Processing</li>
-      <li>Machine Learning</li>
-      <li>Deep Learning</li>
-      <li>Protein Language Models</li>
+      <li>Large Language Models</li>
       <li>Graph Neural Networks</li>
+      <li>Machine Learning Systems</li>
+      <li>MLOps & Cloud Computing</li>
     </ul>
   </div>
   
   <div class="highlight-box">
     <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
     <ul>
-      <li><strong>Programming & Analytics:</strong> Python (pandas, NumPy, scikit-learn), R, SQL</li>
-      <li><strong>ML Frameworks:</strong> PyTorch, TensorFlow, Transformers, PyTorch Lightning, PyTorch Geometric</li>
-      <li><strong>Big Data & Cloud:</strong> AWS, PySpark, Hive, Snowflake, Ray</li>
-      <li><strong>DevOps & Tools:</strong> Linux, Git, Docker, DeepSpeed, Accelerate</li>
-      <li><strong>Visualization:</strong> Tableau, Power BI, Matplotlib, Seaborn</li>
-      <li><strong>ML Monitoring:</strong> Weights and Biases</li>
+      <li><strong>Core ML:</strong> PyTorch, TensorFlow, Transformers, LangChain, RAG</li>
+      <li><strong>Data Science:</strong> Python (pandas, NumPy, scikit-learn, nltk), R, SQL</li>
+      <li><strong>MLOps:</strong> W&B, Comet, ZenML, Ray, DeepSpeed, Accelerate</li>
+      <li><strong>Cloud & Big Data:</strong> AWS, GCP, Apache Spark, Hive, Snowflake</li>
+      <li><strong>DevOps:</strong> Docker, Git, Linux, Kubeflow, Hopsworks</li>
     </ul>
   </div>
   
@@ -49,9 +48,9 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
     <h3><i class="fas fa-award"></i> Achievements</h3>
     <ul>
       <li>Published research in top conferences</li>
-      <li>Developed optimized deep learning models</li>
-      <li>Engineered NLP pipelines for real-world applications</li>
-      <li>Reduced computational costs by 15% through ML optimization</li>
+      <li>Optimized ML pipelines reducing costs by 15%</li>
+      <li>Developed production-grade NLP systems</li>
+      <li>Implemented scalable ML infrastructure</li>
     </ul>
   </div>
 </div>
@@ -89,6 +88,30 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
 </div>
 
 <div class="projects-list">
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Yelp Restaurant Recommendations with GNNs</h4>
+    <p>A Graph Neural Network (GNN) based recommendation system for restaurants using the Yelp dataset, implementing heterogeneous graph models for personalized recommendations.</p>
+    <div class="project-links">
+      <a href="https://github.com/apratim-mishra/gnn_yelp" target="_blank" class="project-link">GitHub →</a>
+    </div>
+  </div>
+  
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Notion RAG</h4>
+    <p>A Retrieval-Augmented Generation (RAG) system that leverages Notion data for AI-powered question answering and knowledge retrieval, with a Flask API and vector search integration.</p>
+    <div class="project-links">
+      <a href="https://github.com/apratim-mishra/notion_" target="_blank" class="project-link">GitHub →</a>
+    </div>
+  </div>
+  
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> H&M Fashion Recommendation System</h4>
+    <p>A machine learning recommendation system for H&M products using a hybrid approach combining collaborative filtering and content-based methods for personalized fashion recommendations.</p>
+    <div class="project-links">
+      <a href="https://github.com/apratim-mishra/h_m/tree/main" target="_blank" class="project-link">GitHub →</a>
+    </div>
+  </div>
+  
   <div class="project-item personal">
     <h4><i class="fas fa-circle-dot fa-xs"></i> Audio App</h4>
     <p>A Next.js application for audio processing and playback with modern UI and advanced features. Implements Web Audio API for real-time audio manipulation.</p>
@@ -232,10 +255,13 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
   
   .projects-list {
     margin: 1.5em 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
   }
   
   .project-item {
-    margin-bottom: 1.5em;
+    margin-bottom: 0;
     padding: 1em 1.2em;
     border-radius: 4px;
     background-color: #fff;
@@ -362,6 +388,10 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
+    .projects-list {
+      grid-template-columns: 1fr;
+    }
+    
     .project-item {
       padding: 1em;
     }
