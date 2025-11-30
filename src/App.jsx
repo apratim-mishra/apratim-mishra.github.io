@@ -1,23 +1,25 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Experience from './components/Experience'
-import Publications from './components/Publications'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import Portfolio from './pages/Portfolio'
+import Career from './pages/Career'
+import Research from './pages/Research'
 
 const AppContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: ${({ theme }) => theme.colors.bg};
+  color: ${({ theme }) => theme.colors.text};
+  transition: background 0.2s ease, color 0.2s ease;
 `
 
 const Main = styled.main`
   flex: 1;
+  padding-top: 56px;
 `
 
 function App() {
@@ -25,13 +27,12 @@ function App() {
     <AppContainer>
       <Navbar />
       <Main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Publications />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/research" element={<Research />} />
+        </Routes>
       </Main>
       <Footer />
     </AppContainer>
@@ -39,4 +40,3 @@ function App() {
 }
 
 export default App
-

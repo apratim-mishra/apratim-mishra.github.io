@@ -1,174 +1,158 @@
-const theme = {
+// Atomize-inspired theme with light/dark modes
+const baseColors = {
+  // From Atomize THEME.js
+  black900: "#0A1F44",
+  black800: "#14284B",
+  black700: "#283A5B",
+  black600: "#364766",
+  black500: "#455571",
+  black400: "#4E5D78",
+  black300: "#596780",
+  black200: "#627088",
+  black100: "#717D92",
+
+  gray900: "#8A94A6",
+  gray800: "#98A1B1",
+  gray700: "#A7AEBB",
+  gray600: "#B0B7C3",
+  gray500: "#C9CED6",
+  gray400: "#E1E4E8",
+  gray300: "#F1F2F4",
+  gray200: "#F7F8F9",
+  gray100: "#FAFBFB",
+
+  brand900: "#0284FE",
+  brand800: "#026DD6",
+  brand700: "#01408F",
+  brand600: "#4BA7FE",
+  brand500: "#83C3FE",
+  brand400: "#B3DAFF",
+  brand300: "#DCEEFF",
+  brand200: "#EEF7FF",
+  brand100: "#F8FBFF",
+
+  accent900: "#FF584A",
+  accent700: "#FF867E",
+  accent500: "#FFBDB8",
+  accent300: "#FFD7D4",
+  accent100: "#FFEEED",
+
+  success700: "#36AB80",
+  success500: "#A9DCC9",
+  success100: "#EAF7F1",
+
+  white: "#FFFFFF",
+  black: "#000000",
+  transparent: "transparent"
+}
+
+export const lightTheme = {
+  mode: 'light',
   colors: {
-    // Primary palette - Deep teal/cyan
-    primary900: "#0D4F5E",
-    primary800: "#0F6577",
-    primary700: "#127B90",
-    primary600: "#1591A9",
-    primary500: "#18A7C2",
-    primary400: "#3DB8CE",
-    primary300: "#62C9DA",
-    primary200: "#A1DEE8",
-    primary100: "#E0F4F8",
-
-    // Accent - Warm coral/orange
-    accent900: "#C44D2A",
-    accent800: "#D65F3B",
-    accent700: "#E8714C",
-    accent600: "#F0845F",
-    accent500: "#F89772",
-    accent400: "#FAAA8E",
-    accent300: "#FCBDAA",
-    accent200: "#FDD6CC",
-    accent100: "#FEF0EB",
-
-    // Neutrals
-    black900: "#0F172A",
-    black800: "#1E293B",
-    black700: "#334155",
-    black600: "#475569",
-    black500: "#64748B",
-    black400: "#94A3B8",
-    black300: "#CBD5E1",
-    black200: "#E2E8F0",
-    black100: "#F1F5F9",
-
-    gray900: "#6B7280",
-    gray800: "#9CA3AF",
-    gray700: "#D1D5DB",
-    gray600: "#E5E7EB",
-    gray500: "#F3F4F6",
-    gray400: "#F9FAFB",
-    gray300: "#FAFBFC",
-    gray200: "#FCFCFD",
-    gray100: "#FFFFFF",
-
-    // Success
-    success700: "#059669",
-    success500: "#10B981",
-    success300: "#6EE7B7",
-    success100: "#D1FAE5",
-
-    // Warning
-    warning700: "#D97706",
-    warning500: "#F59E0B",
-    warning300: "#FCD34D",
-    warning100: "#FEF3C7",
-
-    // Error
-    error700: "#DC2626",
-    error500: "#EF4444",
-    error300: "#FCA5A5",
-    error100: "#FEE2E2",
-
-    // Semantic
-    white: "#FFFFFF",
-    black: "#000000",
-    transparent: "transparent",
-    
-    // Background
-    bgPrimary: "#FAFBFC",
-    bgSecondary: "#FFFFFF",
-    bgDark: "#0F172A",
-    
-    // Text
-    textPrimary: "#0F172A",
-    textSecondary: "#475569",
-    textMuted: "#94A3B8",
-    textLight: "#FFFFFF"
+    ...baseColors,
+    bg: baseColors.gray100,
+    bgCard: baseColors.white,
+    bgNav: "rgba(255, 255, 255, 0.9)",
+    text: baseColors.black800,
+    textSecondary: baseColors.black300,
+    textMuted: baseColors.gray900,
+    border: baseColors.gray400,
+    primary: baseColors.brand900,
+    primaryHover: baseColors.brand800,
+    primaryLight: baseColors.brand100,
+    accent: baseColors.accent900,
+    accentLight: baseColors.accent100
   },
+  shadows: {
+    sm: "0 1px 2px rgba(10, 31, 68, 0.08)",
+    md: "0 3px 6px rgba(10, 31, 68, 0.1)",
+    lg: "0 8px 16px rgba(10, 31, 68, 0.1)",
+    xl: "0 16px 32px rgba(10, 31, 68, 0.12)"
+  }
+}
 
+export const darkTheme = {
+  mode: 'dark',
+  colors: {
+    ...baseColors,
+    bg: baseColors.black900,
+    bgCard: baseColors.black800,
+    bgNav: "rgba(10, 31, 68, 0.95)",
+    text: baseColors.gray200,
+    textSecondary: baseColors.gray600,
+    textMuted: baseColors.gray800,
+    border: baseColors.black600,
+    primary: baseColors.brand600,
+    primaryHover: baseColors.brand500,
+    primaryLight: baseColors.black700,
+    accent: baseColors.accent700,
+    accentLight: baseColors.black700
+  },
+  shadows: {
+    sm: "0 1px 2px rgba(0, 0, 0, 0.2)",
+    md: "0 3px 6px rgba(0, 0, 0, 0.25)",
+    lg: "0 8px 16px rgba(0, 0, 0, 0.3)",
+    xl: "0 16px 32px rgba(0, 0, 0, 0.35)"
+  }
+}
+
+const theme = {
   fonts: {
-    primary: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    mono: "'JetBrains Mono', 'Fira Code', monospace"
+    primary: '"SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    mono: '"SF Mono", "Fira Code", monospace'
   },
-
   fontSizes: {
-    xs: "0.75rem",
-    sm: "0.875rem",
-    base: "1rem",
-    lg: "1.125rem",
-    xl: "1.25rem",
-    "2xl": "1.5rem",
-    "3xl": "1.875rem",
-    "4xl": "2.25rem",
-    "5xl": "3rem",
-    "6xl": "3.75rem"
+    tiny: "10px",
+    caption: "11px",
+    sm: "12px",
+    body: "13px",
+    base: "14px",
+    lg: "15px",
+    xl: "17px",
+    "2xl": "20px",
+    "3xl": "24px",
+    "4xl": "28px",
+    "5xl": "36px"
   },
-
   fontWeights: {
-    light: 300,
     normal: 400,
     medium: 500,
     semibold: 600,
     bold: 700
   },
-
-  lineHeights: {
-    tight: 1.25,
-    snug: 1.375,
-    normal: 1.5,
-    relaxed: 1.625,
-    loose: 2
-  },
-
   spacing: {
     0: "0",
-    1: "0.25rem",
-    2: "0.5rem",
-    3: "0.75rem",
-    4: "1rem",
-    5: "1.25rem",
-    6: "1.5rem",
-    8: "2rem",
-    10: "2.5rem",
-    12: "3rem",
-    16: "4rem",
-    20: "5rem",
-    24: "6rem",
-    32: "8rem"
+    1: "4px",
+    2: "8px",
+    3: "12px",
+    4: "16px",
+    5: "20px",
+    6: "24px",
+    8: "32px",
+    10: "40px",
+    12: "48px",
+    16: "64px"
   },
-
   radii: {
     none: "0",
-    sm: "0.25rem",
-    md: "0.375rem",
-    lg: "0.5rem",
-    xl: "0.75rem",
-    "2xl": "1rem",
-    "3xl": "1.5rem",
+    xs: "2px",
+    sm: "4px",
+    md: "6px",
+    lg: "8px",
+    xl: "12px",
     full: "9999px"
   },
-
-  shadows: {
-    none: "none",
-    sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-    base: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
-    md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
-    lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
-    xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
-    "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-  },
-
   breakpoints: {
-    sm: "640px",
+    sm: "540px",
     md: "768px",
-    lg: "1024px",
-    xl: "1280px",
-    "2xl": "1536px"
+    lg: "960px",
+    xl: "1156px"
   },
-
-  transitions: {
-    fast: "150ms ease",
-    base: "200ms ease",
-    slow: "300ms ease"
-  },
-
   container: {
-    maxWidth: "1200px",
-    padding: "1.5rem"
-  }
+    maxWidth: "1100px",
+    padding: "16px"
+  },
+  transition: "all 0.2s ease-in-out"
 }
 
 export default theme
-

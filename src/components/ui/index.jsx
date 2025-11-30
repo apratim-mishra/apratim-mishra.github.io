@@ -1,22 +1,16 @@
 import styled, { css } from 'styled-components'
-import theme from '../../styles/theme'
 
-// Container
+// Container - Atomize inspired
 export const Container = styled.div`
   width: 100%;
-  max-width: ${theme.container.maxWidth};
+  max-width: ${({ theme }) => theme.container.maxWidth};
   margin: 0 auto;
-  padding: 0 ${theme.container.padding};
-  
-  @media (max-width: ${theme.breakpoints.sm}) {
-    padding: 0 1rem;
-  }
+  padding: 0 ${({ theme }) => theme.container.padding};
 `
 
 // Section
 export const Section = styled.section`
-  padding: ${props => props.$py || '5rem'} 0;
-  background: ${props => props.$bg || 'transparent'};
+  padding: ${props => props.$py || '48px'} 0;
 `
 
 // Flex
@@ -27,102 +21,58 @@ export const Flex = styled.div`
   justify-content: ${props => props.$justify || 'flex-start'};
   gap: ${props => props.$gap || '0'};
   flex-wrap: ${props => props.$wrap || 'nowrap'};
-  
-  @media (max-width: ${theme.breakpoints.md}) {
-    flex-direction: ${props => props.$directionMd || props.$direction || 'row'};
-  }
 `
 
 // Grid
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: ${props => props.$cols || '1fr'};
-  gap: ${props => props.$gap || '1.5rem'};
+  gap: ${props => props.$gap || '12px'};
   
-  @media (max-width: ${theme.breakpoints.lg}) {
-    grid-template-columns: ${props => props.$colsLg || props.$cols || '1fr'};
+  @media (max-width: 960px) {
+    grid-template-columns: ${props => props.$colsMd || props.$cols || '1fr'};
   }
   
-  @media (max-width: ${theme.breakpoints.md}) {
-    grid-template-columns: ${props => props.$colsMd || '1fr'};
+  @media (max-width: 640px) {
+    grid-template-columns: ${props => props.$colsSm || '1fr'};
   }
 `
 
-// Text Components
+// Text
 export const Text = styled.p`
-  font-size: ${props => theme.fontSizes[props.$size] || theme.fontSizes.base};
-  font-weight: ${props => theme.fontWeights[props.$weight] || theme.fontWeights.normal};
-  color: ${props => props.$color || theme.colors.textPrimary};
-  line-height: ${props => theme.lineHeights[props.$lineHeight] || theme.lineHeights.normal};
-  text-align: ${props => props.$align || 'left'};
+  font-size: ${props => props.$size || '14px'};
+  font-weight: ${props => props.$weight || 400};
+  color: ${props => props.$color || 'inherit'};
+  line-height: ${props => props.$lh || 1.5};
   margin: ${props => props.$m || '0'};
 `
 
+// Heading
 export const Heading = styled.h2`
-  font-size: ${props => theme.fontSizes[props.$size] || theme.fontSizes['3xl']};
-  font-weight: ${props => theme.fontWeights[props.$weight] || theme.fontWeights.bold};
-  color: ${props => props.$color || theme.colors.textPrimary};
-  line-height: ${theme.lineHeights.tight};
-  margin: ${props => props.$m || '0'};
-  
-  @media (max-width: ${theme.breakpoints.md}) {
-    font-size: ${props => props.$sizeMd || theme.fontSizes['2xl']};
-  }
-`
-
-export const SubHeading = styled.h3`
-  font-size: ${props => theme.fontSizes[props.$size] || theme.fontSizes.xl};
-  font-weight: ${props => theme.fontWeights[props.$weight] || theme.fontWeights.semibold};
-  color: ${props => props.$color || theme.colors.textPrimary};
-  line-height: ${theme.lineHeights.snug};
+  font-size: ${props => props.$size || '24px'};
+  font-weight: ${props => props.$weight || 600};
+  color: ${({ theme }) => theme.colors.text};
+  line-height: 1.3;
   margin: ${props => props.$m || '0'};
 `
 
-// Button
+// Button variants
 const buttonVariants = {
   primary: css`
-    background: ${theme.colors.primary600};
-    color: ${theme.colors.white};
-    &:hover {
-      background: ${theme.colors.primary700};
-    }
+    background: ${({ theme }) => theme.colors.primary};
+    color: white;
+    &:hover { background: ${({ theme }) => theme.colors.primaryHover}; }
   `,
   secondary: css`
     background: transparent;
-    color: ${theme.colors.primary600};
-    border: 2px solid ${theme.colors.primary600};
-    &:hover {
-      background: ${theme.colors.primary100};
-    }
+    color: ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+    &:hover { background: ${({ theme }) => theme.colors.primaryLight}; }
   `,
   ghost: css`
     background: transparent;
-    color: ${theme.colors.textPrimary};
-    &:hover {
-      background: ${theme.colors.black100};
-    }
-  `,
-  accent: css`
-    background: ${theme.colors.accent600};
-    color: ${theme.colors.white};
-    &:hover {
-      background: ${theme.colors.accent700};
-    }
-  `
-}
-
-const buttonSizes = {
-  sm: css`
-    padding: 0.5rem 1rem;
-    font-size: ${theme.fontSizes.sm};
-  `,
-  md: css`
-    padding: 0.75rem 1.5rem;
-    font-size: ${theme.fontSizes.base};
-  `,
-  lg: css`
-    padding: 1rem 2rem;
-    font-size: ${theme.fontSizes.lg};
+    color: ${({ theme }) => theme.colors.textSecondary};
+    &:hover { background: ${({ theme }) => theme.colors.border}; }
   `
 }
 
@@ -130,102 +80,86 @@ export const Button = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-weight: ${theme.fontWeights.medium};
-  border-radius: ${theme.radii.lg};
-  transition: all ${theme.transitions.base};
-  cursor: pointer;
-  border: none;
+  gap: 6px;
+  padding: ${props => props.$sm ? '6px 12px' : '8px 16px'};
+  font-size: ${props => props.$sm ? '12px' : '13px'};
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   white-space: nowrap;
-  
+  border: none;
   ${props => buttonVariants[props.$variant] || buttonVariants.primary}
-  ${props => buttonSizes[props.$size] || buttonSizes.md}
-  
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
 `
 
-// Link Button
 export const LinkButton = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-weight: ${theme.fontWeights.medium};
-  border-radius: ${theme.radii.lg};
-  transition: all ${theme.transitions.base};
-  cursor: pointer;
+  gap: 6px;
+  padding: ${props => props.$sm ? '6px 12px' : '8px 16px'};
+  font-size: ${props => props.$sm ? '12px' : '13px'};
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   text-decoration: none;
-  
+  border: none;
   ${props => buttonVariants[props.$variant] || buttonVariants.primary}
-  ${props => buttonSizes[props.$size] || buttonSizes.md}
 `
 
-// Card
+// Card - compact
 export const Card = styled.div`
-  background: ${props => props.$bg || theme.colors.white};
-  border-radius: ${theme.radii.xl};
-  padding: ${props => props.$p || '1.5rem'};
-  box-shadow: ${props => theme.shadows[props.$shadow] || theme.shadows.base};
-  border: 1px solid ${props => props.$border || theme.colors.black200};
-  transition: all ${theme.transitions.base};
+  background: ${({ theme }) => theme.colors.bgCard};
+  border-radius: 8px;
+  padding: ${props => props.$p || '16px'};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  transition: all 0.2s ease;
   
   ${props => props.$hover && css`
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: ${theme.shadows.lg};
+      transform: translateY(-2px);
+      box-shadow: ${({ theme }) => theme.shadows.md};
     }
   `}
 `
 
-// Tag/Badge
+// Tag - compact
 export const Tag = styled.span`
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
-  font-size: ${theme.fontSizes.xs};
-  font-weight: ${theme.fontWeights.medium};
-  border-radius: ${theme.radii.full};
-  background: ${props => props.$bg || theme.colors.primary100};
-  color: ${props => props.$color || theme.colors.primary700};
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  background: ${props => props.$bg || (({ theme }) => theme.colors.primaryLight)};
+  color: ${props => props.$color || (({ theme }) => theme.colors.primary)};
 `
 
-// Divider
-export const Divider = styled.hr`
-  border: none;
-  height: 1px;
-  background: ${props => props.$color || theme.colors.black200};
-  margin: ${props => props.$m || '2rem 0'};
+// Section Header
+export const SectionHeader = styled.div`
+  margin-bottom: 24px;
+  
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.colors.text};
+    margin-bottom: 4px;
+  }
+  
+  p {
+    font-size: 13px;
+    color: ${({ theme }) => theme.colors.textSecondary};
+  }
 `
 
-// Icon wrapper
-export const IconWrapper = styled.span`
+// Icon wrapper - compact
+export const IconBox = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: ${props => props.$size || '2.5rem'};
-  height: ${props => props.$size || '2.5rem'};
-  border-radius: ${props => props.$rounded || theme.radii.lg};
-  background: ${props => props.$bg || theme.colors.primary100};
-  color: ${props => props.$color || theme.colors.primary600};
-  font-size: ${props => props.$iconSize || '1.25rem'};
+  width: ${props => props.$size || '32px'};
+  height: ${props => props.$size || '32px'};
+  border-radius: 6px;
+  background: ${props => props.$bg || (({ theme }) => theme.colors.primaryLight)};
+  color: ${props => props.$color || (({ theme }) => theme.colors.primary)};
+  font-size: ${props => props.$iconSize || '14px'};
 `
-
-// Section Title Component
-export const SectionTitle = styled.div`
-  text-align: ${props => props.$align || 'center'};
-  margin-bottom: 3rem;
-`
-
-export const SectionLabel = styled.span`
-  display: inline-block;
-  font-size: ${theme.fontSizes.sm};
-  font-weight: ${theme.fontWeights.semibold};
-  color: ${theme.colors.primary600};
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-`
-
