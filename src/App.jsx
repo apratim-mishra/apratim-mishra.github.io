@@ -14,12 +14,12 @@ const AppContainer = styled.div`
   flex-direction: column;
   background: ${({ theme }) => theme.colors.bg};
   color: ${({ theme }) => theme.colors.text};
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background-color 250ms ease, color 250ms ease;
 `
 
 const Main = styled.main`
   flex: 1;
-  padding-top: 56px;
+  padding-top: 64px;
 `
 
 function App() {

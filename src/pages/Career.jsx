@@ -1,145 +1,233 @@
 import React from 'react'
-import styled from 'styled-components'
-import { FiMapPin, FiCalendar, FiDownload } from 'react-icons/fi'
-import { Container, Section, Card, Tag, LinkButton } from '../components/ui'
+import styled, { keyframes, css } from 'styled-components'
+import { FiMapPin, FiCalendar, FiDownload, FiAward, FiBookOpen } from 'react-icons/fi'
+import { Container, Section, Card, Tag, LinkButton, Grid } from '../components/ui'
+import { useInView } from '../hooks/useInView'
 
+// Animations
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
+const expandLine = keyframes`
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+`
+
+const pulse = keyframes`
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 102, 255, 0);
+  }
+`
+
+// Page Header
 const PageHeader = styled.div`
-  padding: 32px 0 24px;
+  padding: 48px 0 40px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  margin-bottom: 24px;
+  margin-bottom: 48px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 20px;
+  animation: ${fadeInUp} 600ms cubic-bezier(0, 0, 0.2, 1) forwards;
   
   @media (max-width: 640px) {
     flex-direction: column;
-    gap: 16px;
   }
   
   div {
     h1 {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 36px;
+      font-weight: 800;
       color: ${({ theme }) => theme.colors.text};
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+      
+      @media (max-width: 640px) {
+        font-size: 28px;
+      }
     }
     
     p {
-      font-size: 14px;
+      font-size: 16px;
       color: ${({ theme }) => theme.colors.textSecondary};
+      line-height: 1.6;
     }
   }
 `
 
-const Timeline = styled.div`
+// Timeline
+const TimelineContainer = styled.div`
   position: relative;
+  padding-left: 32px;
   
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: ${({ theme }) => theme.colors.border};
+  @media (max-width: 640px) {
+    padding-left: 24px;
   }
+`
+
+const TimelineLine = styled.div`
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.border} 100%
+  );
+  border-radius: 1px;
 `
 
 const TimelineItem = styled.div`
   position: relative;
-  padding-left: 24px;
-  padding-bottom: 24px;
+  padding-bottom: 32px;
+  animation: ${fadeInUp} 600ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation-delay: ${({ $delay }) => $delay || '0ms'};
+  opacity: 0;
   
   &:last-child {
     padding-bottom: 0;
   }
+`
+
+const TimelineDot = styled.div`
+  position: absolute;
+  left: -32px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: ${({ $current, theme }) => 
+    $current ? theme.colors.primary : theme.colors.bgCard};
+  border: 3px solid ${({ $current, theme }) => 
+    $current ? theme.colors.primary : theme.colors.border};
+  z-index: 1;
   
-  &::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: 8px;
+  ${({ $current }) => $current && css`
+    animation: ${pulse} 2s ease-in-out infinite;
+  `}
+  
+  @media (max-width: 640px) {
+    left: -24px;
     width: 12px;
     height: 12px;
-    border-radius: 50%;
-    background: ${props => props.$current 
-      ? (({ theme }) => theme.colors.primary) 
-      : (({ theme }) => theme.colors.bg)};
-    border: 2px solid ${props => props.$current 
-      ? (({ theme }) => theme.colors.primary) 
-      : (({ theme }) => theme.colors.border)};
   }
 `
 
+// Job Card
 const JobCard = styled(Card)`
-  padding: 16px;
+  padding: 28px;
+  border-radius: 16px;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  ${({ $current, theme }) => $current && `
+    border-color: ${theme.colors.primary};
+    background: ${theme.colors.gradientCard};
+  `}
+  
+  &:hover {
+    transform: translateX(8px);
+    box-shadow: ${({ theme }) => theme.shadows.lg};
+  }
+  
+  @media (max-width: 640px) {
+    padding: 20px;
+  }
 `
 
 const JobHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  gap: 16px;
   flex-wrap: wrap;
-  gap: 8px;
 `
 
+const JobInfo = styled.div``
+
 const JobTitle = styled.h3`
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 `
 
 const JobCompany = styled.span`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.primary};
 `
 
-const CurrentTag = styled.span`
+const CurrentBadge = styled.span`
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
+  gap: 4px;
+  padding: 6px 12px;
   font-size: 11px;
-  font-weight: 500;
-  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 20px;
   background: ${({ theme }) => theme.colors.successLight};
   color: ${({ theme }) => theme.colors.success};
 `
 
 const JobMeta = styled.div`
   display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-  font-size: 12px;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
   color: ${({ theme }) => theme.colors.textMuted};
+  flex-wrap: wrap;
   
   span {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
   }
 `
 
-const JobList = styled.ul`
+const JobHighlights = styled.ul`
   list-style: none;
 `
 
-const JobItem = styled.li`
+const JobHighlight = styled.li`
   position: relative;
-  padding-left: 12px;
-  margin-bottom: 6px;
-  font-size: 13px;
+  padding-left: 16px;
+  margin-bottom: 10px;
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.textSecondary};
-  line-height: 1.5;
+  line-height: 1.6;
   
   &::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 4px;
-    height: 4px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.primary};
   }
@@ -149,43 +237,67 @@ const JobItem = styled.li`
   }
 `
 
-const EducationSection = styled.div`
-  margin-top: 32px;
+// Education Section
+const SectionTitle = styled.h2`
+  font-size: 28px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 24px;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: ${fadeInUp} 600ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation-delay: ${({ $delay }) => $delay || '0ms'};
+  opacity: 0;
   
-  h2 {
-    font-size: 18px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.colors.text};
-    margin-bottom: 16px;
+  svg {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  
+  @media (max-width: 640px) {
+    font-size: 24px;
   }
 `
 
-const EduCard = styled(Card)`
-  padding: 14px;
-  margin-bottom: 10px;
+const EducationCard = styled(Card)`
+  padding: 24px;
+  border-radius: 16px;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: ${fadeInUp} 600ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation-delay: ${({ $delay }) => $delay || '0ms'};
+  opacity: 0;
   
-  &:last-child {
-    margin-bottom: 0;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadows.md};
+    border-color: ${({ theme }) => theme.colors.borderHover};
   }
 `
 
 const EduTitle = styled.h3`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 4px;
 `
 
 const EduSchool = styled.p`
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 `
 
 const EduMeta = styled.p`
-  font-size: 12px;
+  font-size: 13px;
   color: ${({ theme }) => theme.colors.textMuted};
+  display: flex;
+  align-items: center;
+  gap: 6px;
 `
 
+// Data
 const experiences = [
   {
     title: 'Machine Learning Engineer',
@@ -239,12 +351,30 @@ const experiences = [
 ]
 
 const education = [
-  { degree: 'Ph.D. in Information Sciences', school: 'University of Illinois at Urbana-Champaign', period: 'Aug 2019 - June 2025' },
-  { degree: "Master's in Energy and Environmental Policy", school: 'University of Delaware', period: 'Aug 2016 - May 2018' },
-  { degree: "Bachelor's in Chemical Engineering", school: 'Birla Institute of Technology and Science', period: 'Aug 2012 - May 2016' }
+  { 
+    degree: 'Ph.D. in Information Sciences', 
+    school: 'University of Illinois at Urbana-Champaign', 
+    period: 'Aug 2019 - June 2025',
+    location: 'Champaign, IL'
+  },
+  { 
+    degree: "Master's in Energy and Environmental Policy", 
+    school: 'University of Delaware', 
+    period: 'Aug 2016 - May 2018',
+    location: 'Newark, DE'
+  },
+  { 
+    degree: "Bachelor's in Chemical Engineering", 
+    school: 'Birla Institute of Technology and Science', 
+    period: 'Aug 2012 - May 2016',
+    location: 'Pilani, India'
+  }
 ]
 
 function Career() {
+  const [expRef, expVisible] = useInView({ threshold: 0.1 })
+  const [eduRef, eduVisible] = useInView({ threshold: 0.1 })
+
   return (
     <Container>
       <PageHeader>
@@ -252,48 +382,74 @@ function Career() {
           <h1>Career</h1>
           <p>Building production ML systems across enterprise, research, and healthcare</p>
         </div>
-        <LinkButton href="/files/Resume_Apratim.pdf" target="_blank" $variant="primary" $sm>
-          <FiDownload size={12} /> Download Resume
+        <LinkButton 
+          href="/files/Resume_Apratim.pdf" 
+          target="_blank" 
+          $variant="primary"
+        >
+          <FiDownload size={16} /> Download Resume
         </LinkButton>
       </PageHeader>
       
-      <Section $py="0">
-        <Timeline>
+      {/* Work Experience */}
+      <Section $py="0" ref={expRef}>
+        <SectionTitle $delay="100ms">
+          <FiAward size={24} />
+          Work Experience
+        </SectionTitle>
+        
+        <TimelineContainer>
+          <TimelineLine />
           {experiences.map((exp, i) => (
-            <TimelineItem key={i} $current={exp.current}>
-              <JobCard>
+            <TimelineItem key={i} $delay={`${150 + i * 100}ms`}>
+              <TimelineDot $current={exp.current} />
+              <JobCard $current={exp.current}>
                 <JobHeader>
-                  <div>
+                  <JobInfo>
                     <JobTitle>{exp.title}</JobTitle>
                     <JobCompany>{exp.company}</JobCompany>
-                  </div>
-                  {exp.current && <CurrentTag>Current</CurrentTag>}
+                  </JobInfo>
+                  {exp.current && (
+                    <CurrentBadge>
+                      <span>●</span> Current Role
+                    </CurrentBadge>
+                  )}
                 </JobHeader>
                 <JobMeta>
-                  <span><FiMapPin size={12} /> {exp.location}</span>
-                  <span><FiCalendar size={12} /> {exp.period}</span>
+                  <span><FiMapPin size={14} /> {exp.location}</span>
+                  <span><FiCalendar size={14} /> {exp.period}</span>
                 </JobMeta>
-                <JobList>
+                <JobHighlights>
                   {exp.highlights.map((item, j) => (
-                    <JobItem key={j}>{item}</JobItem>
+                    <JobHighlight key={j}>{item}</JobHighlight>
                   ))}
-                </JobList>
+                </JobHighlights>
               </JobCard>
             </TimelineItem>
           ))}
-        </Timeline>
+        </TimelineContainer>
       </Section>
       
-      <EducationSection>
-        <h2>Education</h2>
-        {education.map((edu, i) => (
-          <EduCard key={i}>
-            <EduTitle>{edu.degree}</EduTitle>
-            <EduSchool>{edu.school}</EduSchool>
-            <EduMeta>{edu.period}</EduMeta>
-          </EduCard>
-        ))}
-      </EducationSection>
+      {/* Education */}
+      <Section $py="64px" ref={eduRef}>
+        <SectionTitle $delay="0ms">
+          <FiBookOpen size={24} />
+          Education
+        </SectionTitle>
+        
+        <Grid $cols="repeat(3, 1fr)" $colsMd="repeat(2, 1fr)" $colsSm="1fr" $gap="20px">
+          {education.map((edu, i) => (
+            <EducationCard key={i} $delay={`${i * 100}ms`}>
+              <EduTitle>{edu.degree}</EduTitle>
+              <EduSchool>{edu.school}</EduSchool>
+              <EduMeta>
+                <FiCalendar size={12} />
+                {edu.period}
+              </EduMeta>
+            </EducationCard>
+          ))}
+        </Grid>
+      </Section>
     </Container>
   )
 }

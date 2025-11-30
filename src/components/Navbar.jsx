@@ -1,9 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { FiMenu, FiX, FiSun, FiMoon, FiDownload } from 'react-icons/fi'
 import { Container } from './ui'
 import { useTheme } from '../styles/ThemeContext'
+
+// Animations
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`
+
+const slideDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 const Nav = styled.nav`
   position: fixed;
@@ -11,10 +28,13 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 1000;
-  background: ${({ theme }) => theme.colors.bgNav};
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  height: 56px;
+  background: ${({ theme, $scrolled }) => 
+    $scrolled ? theme.colors.bgNav : 'transparent'};
+  backdrop-filter: ${({ $scrolled }) => $scrolled ? 'blur(16px)' : 'none'};
+  border-bottom: 1px solid ${({ theme, $scrolled }) => 
+    $scrolled ? theme.colors.border : 'transparent'};
+  height: 64px;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 `
 
 const NavContainer = styled(Container)`
@@ -25,9 +45,11 @@ const NavContainer = styled(Container)`
 `
 
 const Logo = styled(Link)`
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
+  letter-spacing: -0.025em;
+  transition: color 200ms ease;
   
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
@@ -37,7 +59,7 @@ const Logo = styled(Link)`
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   
   @media (max-width: 768px) {
     display: none;
@@ -45,18 +67,36 @@ const NavLinks = styled.div`
 `
 
 const NavLink = styled(Link)`
-  padding: 6px 12px;
-  font-size: 13px;
+  position: relative;
+  padding: 8px 14px;
+  font-size: 14px;
   font-weight: 500;
-  color: ${props => props.$active 
-    ? (({ theme }) => theme.colors.text) 
-    : (({ theme }) => theme.colors.textSecondary)};
-  border-radius: 6px;
-  transition: all 0.15s ease;
+  color: ${({ theme, $active }) => 
+    $active ? theme.colors.text : theme.colors.textSecondary};
+  border-radius: 8px;
+  transition: all 200ms ease;
   
   &:hover {
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.bgHover};
+  }
+  
+  /* Active indicator */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(${({ $active }) => $active ? 1 : 0});
+    width: 20px;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.primary};
+    border-radius: 1px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  &:hover::after {
+    transform: translateX(-50%) scaleX(1);
   }
 `
 
@@ -70,37 +110,48 @@ const IconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   color: ${({ theme }) => theme.colors.textSecondary};
-  transition: all 0.15s ease;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   
   &:hover {
     background: ${({ theme }) => theme.colors.bgHover};
     color: ${({ theme }) => theme.colors.text};
+  }
+  
+  &:active {
+    transform: scale(0.95);
   }
 `
 
 const ResumeButton = styled.a`
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
-  font-size: 12px;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
   font-weight: 500;
   background: ${({ theme }) => theme.colors.primary};
   color: white;
-  border-radius: 6px;
-  transition: all 0.15s ease;
+  border-radius: 8px;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   
   &:hover {
     background: ${({ theme }) => theme.colors.primaryHover};
+    transform: translateY(-1px);
+    box-shadow: ${({ theme }) => theme.shadows.md};
+  }
+  
+  &:active {
+    transform: translateY(0);
   }
   
   @media (max-width: 640px) {
     span { display: none; }
-    padding: 8px;
+    padding: 10px;
+    border-radius: 10px;
   }
 `
 
@@ -111,33 +162,95 @@ const MobileMenuBtn = styled(IconButton)`
   }
 `
 
-const MobileMenu = styled.div`
+// Mobile Menu Overlay
+const MobileMenuOverlay = styled.div`
   display: none;
   position: fixed;
-  top: 56px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: ${({ theme }) => theme.colors.bg};
-  padding: 16px;
-  flex-direction: column;
-  gap: 4px;
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: ${({ $open }) => $open ? 1 : 0};
+  visibility: ${({ $open }) => $open ? 'visible' : 'hidden'};
+  transition: all 300ms ease;
   
   @media (max-width: 768px) {
-    display: ${props => props.$open ? 'flex' : 'none'};
+    display: block;
   }
 `
 
+const MobileMenu = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 85%;
+  background: ${({ theme }) => theme.colors.bg};
+  padding: 80px 24px 24px;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+  transform: translateX(${({ $open }) => $open ? '0' : '100%'});
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${({ theme }) => theme.shadows.xl};
+  
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`
+
+const MobileCloseBtn = styled(IconButton)`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+`
+
 const MobileNavLink = styled(Link)`
-  padding: 12px 16px;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  font-size: 15px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
-  border-radius: 8px;
+  color: ${({ theme, $active }) => 
+    $active ? theme.colors.primary : theme.colors.text};
+  border-radius: 10px;
+  transition: all 200ms ease;
+  animation: ${slideDown} 400ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation-delay: ${({ $delay }) => $delay || '0ms'};
+  opacity: 0;
   
   &:hover {
     background: ${({ theme }) => theme.colors.bgHover};
+  }
+  
+  ${({ $active, theme }) => $active && `
+    background: ${theme.colors.primaryLight};
+  `}
+`
+
+const MobileResumeButton = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
+  border-radius: 10px;
+  margin-top: 16px;
+  transition: all 200ms ease;
+  animation: ${slideDown} 400ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation-delay: 300ms;
+  opacity: 0;
+  
+  &:hover {
+    background: ${({ theme }) => theme.colors.primaryHover};
   }
 `
 
@@ -151,11 +264,39 @@ const navItems = [
 function Navbar() {
   const { isDark, toggleTheme } = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+
+  // Handle scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [location.pathname])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
 
   return (
     <>
-      <Nav>
+      <Nav $scrolled={scrolled}>
         <NavContainer>
           <Logo to="/">Apratim Mishra</Logo>
           
@@ -181,23 +322,48 @@ function Navbar() {
               <span>Resume</span>
             </ResumeButton>
             
-            <MobileMenuBtn onClick={() => setMobileOpen(!mobileOpen)}>
-              {mobileOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+            <MobileMenuBtn 
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+            >
+              <FiMenu size={20} />
             </MobileMenuBtn>
           </NavActions>
         </NavContainer>
       </Nav>
       
+      {/* Mobile Menu */}
+      <MobileMenuOverlay 
+        $open={mobileOpen} 
+        onClick={() => setMobileOpen(false)}
+      />
       <MobileMenu $open={mobileOpen}>
-        {navItems.map(item => (
+        <MobileCloseBtn 
+          onClick={() => setMobileOpen(false)}
+          aria-label="Close menu"
+        >
+          <FiX size={20} />
+        </MobileCloseBtn>
+        
+        {navItems.map((item, index) => (
           <MobileNavLink 
             key={item.path} 
             to={item.path}
+            $active={location.pathname === item.path}
+            $delay={`${(index + 1) * 50}ms`}
             onClick={() => setMobileOpen(false)}
           >
             {item.label}
           </MobileNavLink>
         ))}
+        
+        <MobileResumeButton 
+          href="/files/Resume_Apratim.pdf" 
+          target="_blank"
+        >
+          <FiDownload size={16} />
+          Download Resume
+        </MobileResumeButton>
       </MobileMenu>
     </>
   )
