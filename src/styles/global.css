@@ -125,7 +125,7 @@ body[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
 /* Scrollbar - Dark mode */
 body[data-theme="dark"] {
   scrollbar-width: thin;
-  scrollbar-color: #333333 #0A0A0A;
+  scrollbar-color: #3F3F46 #09090B;
 }
 
 body[data-theme="dark"] ::-webkit-scrollbar {
@@ -134,16 +134,16 @@ body[data-theme="dark"] ::-webkit-scrollbar {
 }
 
 body[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #09090B;
 }
 
 body[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: #3F3F46;
   border-radius: 4px;
 }
 
 body[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-  background: #444444;
+  background: #52525B;
 }
 
 /* ============================================

@@ -8,6 +8,14 @@ dist/
 build/
 *.local
 
+# Jekyll (legacy)
+_site/
+vendor/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+
 # Cache
 .cache/
 .parcel-cache/

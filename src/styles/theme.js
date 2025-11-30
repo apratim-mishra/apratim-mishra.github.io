@@ -105,55 +105,55 @@ export const darkTheme = {
   mode: 'dark',
   colors: {
     ...baseColors,
-    // Backgrounds - TRUE BLACK
-    bg: "#000000",
-    bgAlt: "#0A0A0A",
-    bgCard: "#111111",
-    bgNav: "rgba(0, 0, 0, 0.85)",
-    bgHover: "#1A1A1A",
-    bgElevated: "#151515",
+    // Backgrounds - Rich dark with subtle warmth
+    bg: "#09090B",
+    bgAlt: "#0C0C0E",
+    bgCard: "#131316",
+    bgNav: "rgba(9, 9, 11, 0.92)",
+    bgHover: "#1C1C1F",
+    bgElevated: "#18181B",
     
-    // Text hierarchy
-    text: "#FAFAFA",
-    textSecondary: "#B0B0B0",
-    textMuted: "#6A6A6A",
-    textInverse: "#000000",
+    // Text hierarchy - crisp whites and grays
+    text: "#F4F4F5",
+    textSecondary: "#A1A1AA",
+    textMuted: "#71717A",
+    textInverse: "#09090B",
     
-    // Borders
-    border: "#222222",
-    borderLight: "#1A1A1A",
-    borderHover: "#333333",
-    borderFocus: "#3385FF",
+    // Borders - subtle but visible
+    border: "#27272A",
+    borderLight: "#1F1F23",
+    borderHover: "#3F3F46",
+    borderFocus: "#60A5FA",
     
-    // Primary - brighter for dark mode
-    primary: "#3385FF",
-    primaryHover: "#4D94FF",
-    primaryLight: "#111827",
-    primaryText: "#3385FF",
+    // Primary - vibrant blue for dark mode
+    primary: "#60A5FA",
+    primaryHover: "#93C5FD",
+    primaryLight: "#172554",
+    primaryText: "#60A5FA",
     
-    // Accent
-    accent: "#FF8A5B",
-    accentHover: "#FF9A6C",
-    accentLight: "#1A1512",
+    // Accent - warm coral
+    accent: "#FB923C",
+    accentHover: "#FDBA74",
+    accentLight: "#1C1210",
     
-    // Success
-    success: "#10B981",
-    successLight: "#052E16",
+    // Success - emerald
+    success: "#34D399",
+    successLight: "#064E3B",
     
     // Gradients
-    gradientPrimary: "linear-gradient(135deg, #3385FF 0%, #0066FF 100%)",
-    gradientAccent: "linear-gradient(135deg, #FF8A5B 0%, #FF6B35 100%)",
-    gradientSubtle: "linear-gradient(180deg, #000000 0%, #0A0A0A 100%)",
-    gradientCard: "linear-gradient(135deg, rgba(51, 133, 255, 0.05) 0%, rgba(255, 138, 91, 0.05) 100%)"
+    gradientPrimary: "linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)",
+    gradientAccent: "linear-gradient(135deg, #FB923C 0%, #F97316 100%)",
+    gradientSubtle: "linear-gradient(180deg, #09090B 0%, #0C0C0E 100%)",
+    gradientCard: "linear-gradient(135deg, rgba(96, 165, 250, 0.04) 0%, rgba(251, 146, 60, 0.04) 100%)"
   },
   shadows: {
-    xs: "0 1px 2px rgba(0, 0, 0, 0.4)",
-    sm: "0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4)",
-    md: "0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.4)",
-    lg: "0 10px 15px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.4)",
-    xl: "0 20px 25px rgba(0, 0, 0, 0.6), 0 10px 10px rgba(0, 0, 0, 0.4)",
-    glow: "0 0 30px rgba(51, 133, 255, 0.2)",
-    glowAccent: "0 0 30px rgba(255, 138, 91, 0.2)"
+    xs: "0 1px 2px rgba(0, 0, 0, 0.5)",
+    sm: "0 1px 3px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5)",
+    md: "0 4px 6px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+    lg: "0 10px 20px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.5)",
+    xl: "0 20px 30px rgba(0, 0, 0, 0.7), 0 10px 15px rgba(0, 0, 0, 0.5)",
+    glow: "0 0 25px rgba(96, 165, 250, 0.25)",
+    glowAccent: "0 0 25px rgba(251, 146, 60, 0.25)"
   }
 }
 
