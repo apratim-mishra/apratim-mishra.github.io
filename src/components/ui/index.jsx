@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-// Container - Atomize inspired
+// Container
 export const Container = styled.div`
   width: 100%;
   max-width: ${({ theme }) => theme.container.maxWidth};
@@ -61,18 +61,26 @@ const buttonVariants = {
   primary: css`
     background: ${({ theme }) => theme.colors.primary};
     color: white;
-    &:hover { background: ${({ theme }) => theme.colors.primaryHover}; }
+    &:hover { 
+      background: ${({ theme }) => theme.colors.primaryHover}; 
+    }
   `,
   secondary: css`
     background: transparent;
-    color: ${({ theme }) => theme.colors.primary};
-    border: 1px solid ${({ theme }) => theme.colors.primary};
-    &:hover { background: ${({ theme }) => theme.colors.primaryLight}; }
+    color: ${({ theme }) => theme.colors.primaryText};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    &:hover { 
+      background: ${({ theme }) => theme.colors.bgHover};
+      border-color: ${({ theme }) => theme.colors.borderHover};
+    }
   `,
   ghost: css`
     background: transparent;
     color: ${({ theme }) => theme.colors.textSecondary};
-    &:hover { background: ${({ theme }) => theme.colors.border}; }
+    &:hover { 
+      background: ${({ theme }) => theme.colors.bgHover}; 
+      color: ${({ theme }) => theme.colors.text};
+    }
   `
 }
 
@@ -85,7 +93,7 @@ export const Button = styled.button`
   font-size: ${props => props.$sm ? '12px' : '13px'};
   font-weight: 500;
   border-radius: 6px;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   white-space: nowrap;
   border: none;
   ${props => buttonVariants[props.$variant] || buttonVariants.primary}
@@ -100,29 +108,29 @@ export const LinkButton = styled.a`
   font-size: ${props => props.$sm ? '12px' : '13px'};
   font-weight: 500;
   border-radius: 6px;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
   border: none;
   ${props => buttonVariants[props.$variant] || buttonVariants.primary}
 `
 
-// Card - compact
+// Card
 export const Card = styled.div`
   background: ${({ theme }) => theme.colors.bgCard};
   border-radius: 8px;
   padding: ${props => props.$p || '16px'};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   
   ${props => props.$hover && css`
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: ${({ theme }) => theme.shadows.md};
+      border-color: ${({ theme }) => theme.colors.borderHover};
+      background: ${({ theme }) => theme.colors.bgHover};
     }
   `}
 `
 
-// Tag - compact
+// Tag
 export const Tag = styled.span`
   display: inline-flex;
   align-items: center;
@@ -130,8 +138,9 @@ export const Tag = styled.span`
   font-size: 11px;
   font-weight: 500;
   border-radius: 4px;
-  background: ${props => props.$bg || (({ theme }) => theme.colors.primaryLight)};
-  color: ${props => props.$color || (({ theme }) => theme.colors.primary)};
+  background: ${({ theme }) => theme.colors.primaryLight};
+  color: ${({ theme }) => theme.colors.primaryText};
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 // Section Header
@@ -151,7 +160,7 @@ export const SectionHeader = styled.div`
   }
 `
 
-// Icon wrapper - compact
+// Icon wrapper
 export const IconBox = styled.span`
   display: inline-flex;
   align-items: center;
@@ -159,7 +168,7 @@ export const IconBox = styled.span`
   width: ${props => props.$size || '32px'};
   height: ${props => props.$size || '32px'};
   border-radius: 6px;
-  background: ${props => props.$bg || (({ theme }) => theme.colors.primaryLight)};
-  color: ${props => props.$color || (({ theme }) => theme.colors.primary)};
+  background: ${({ theme }) => theme.colors.primaryLight};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: ${props => props.$iconSize || '14px'};
 `

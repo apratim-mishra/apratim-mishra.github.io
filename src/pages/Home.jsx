@@ -67,6 +67,7 @@ const SocialLink = styled.a`
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.bgHover};
   }
 `
 
@@ -122,9 +123,12 @@ const SkillTags = styled.div`
 const ProjectCard = styled(Card)`
   padding: 14px;
   cursor: pointer;
+  text-decoration: none;
+  display: block;
   
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.bgHover};
   }
 `
 
@@ -162,7 +166,7 @@ const skills = [
 const featuredProjects = [
   {
     title: 'Prediction Market Agent',
-    desc: 'AI-powered prediction market with Coinbase AgentKit, LangChain/LangGraph, and smart contracts on Base Sepolia.',
+    desc: 'AI prediction market with Coinbase AgentKit, LangChain/LangGraph, and smart contracts on Base Sepolia.',
     tags: ['LangChain', 'Solidity', 'FastAPI'],
     link: 'https://github.com/apratim-mishra/prediction-market-agent'
   },
@@ -254,7 +258,6 @@ function Home() {
                 as="a" 
                 href={project.link} 
                 target="_blank"
-                $hover
               >
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectDesc>{project.desc}</ProjectDesc>
@@ -273,4 +276,3 @@ function Home() {
 }
 
 export default Home
-

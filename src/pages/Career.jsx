@@ -64,7 +64,7 @@ const TimelineItem = styled.div`
     border-radius: 50%;
     background: ${props => props.$current 
       ? (({ theme }) => theme.colors.primary) 
-      : (({ theme }) => theme.colors.bgCard)};
+      : (({ theme }) => theme.colors.bg)};
     border: 2px solid ${props => props.$current 
       ? (({ theme }) => theme.colors.primary) 
       : (({ theme }) => theme.colors.border)};
@@ -94,6 +94,17 @@ const JobCompany = styled.span`
   font-size: 14px;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.primary};
+`
+
+const CurrentTag = styled.span`
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  background: ${({ theme }) => theme.colors.successLight};
+  color: ${({ theme }) => theme.colors.success};
 `
 
 const JobMeta = styled.div`
@@ -256,7 +267,7 @@ function Career() {
                     <JobTitle>{exp.title}</JobTitle>
                     <JobCompany>{exp.company}</JobCompany>
                   </div>
-                  {exp.current && <Tag $bg={({ theme }) => theme.colors.success100} $color={({ theme }) => theme.colors.success700}>Current</Tag>}
+                  {exp.current && <CurrentTag>Current</CurrentTag>}
                 </JobHeader>
                 <JobMeta>
                   <span><FiMapPin size={12} /> {exp.location}</span>
@@ -288,4 +299,3 @@ function Career() {
 }
 
 export default Career
-

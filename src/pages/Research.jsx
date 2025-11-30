@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FiBookOpen, FiExternalLink, FiDownload } from 'react-icons/fi'
+import { FiBookOpen, FiExternalLink } from 'react-icons/fi'
 import { SiGooglescholar } from 'react-icons/si'
 import { Container, Section, Card, LinkButton } from '../components/ui'
 
@@ -47,7 +47,8 @@ const PubCard = styled(Card)`
   }
   
   &:hover {
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.borderHover};
+    background: ${({ theme }) => theme.colors.bgHover};
   }
 `
 
@@ -57,7 +58,7 @@ const PubIcon = styled.div`
   height: 40px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.primaryLight};
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primaryText};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,13 +109,15 @@ const PubLink = styled.a`
   font-size: 11px;
   font-weight: 500;
   border-radius: 4px;
-  background: ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.bgHover};
   color: ${({ theme }) => theme.colors.textSecondary};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   transition: all 0.15s ease;
   
   &:hover {
     background: ${({ theme }) => theme.colors.primaryLight};
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primaryText};
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `
 
@@ -189,4 +192,3 @@ function Research() {
 }
 
 export default Research
-

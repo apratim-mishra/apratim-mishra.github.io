@@ -1,46 +1,29 @@
-// Atomize-inspired theme with light/dark modes
+// Theme with true black dark mode and clean light mode
 const baseColors = {
-  // From Atomize THEME.js
-  black900: "#0A1F44",
-  black800: "#14284B",
-  black700: "#283A5B",
-  black600: "#364766",
-  black500: "#455571",
-  black400: "#4E5D78",
-  black300: "#596780",
-  black200: "#627088",
-  black100: "#717D92",
+  // Primary blue
+  primary900: "#0066FF",
+  primary800: "#0052CC",
+  primary700: "#003D99",
+  primary600: "#3385FF",
+  primary500: "#66A3FF",
+  primary400: "#99C2FF",
+  primary300: "#CCE0FF",
+  primary200: "#E6F0FF",
+  primary100: "#F5F9FF",
 
-  gray900: "#8A94A6",
-  gray800: "#98A1B1",
-  gray700: "#A7AEBB",
-  gray600: "#B0B7C3",
-  gray500: "#C9CED6",
-  gray400: "#E1E4E8",
-  gray300: "#F1F2F4",
-  gray200: "#F7F8F9",
-  gray100: "#FAFBFB",
+  // Accent coral/orange
+  accent900: "#FF6B35",
+  accent700: "#FF8A5B",
+  accent500: "#FFB59A",
+  accent300: "#FFD4C4",
+  accent100: "#FFF0EB",
 
-  brand900: "#0284FE",
-  brand800: "#026DD6",
-  brand700: "#01408F",
-  brand600: "#4BA7FE",
-  brand500: "#83C3FE",
-  brand400: "#B3DAFF",
-  brand300: "#DCEEFF",
-  brand200: "#EEF7FF",
-  brand100: "#F8FBFF",
+  // Success green
+  success700: "#059669",
+  success500: "#10B981",
+  success100: "#D1FAE5",
 
-  accent900: "#FF584A",
-  accent700: "#FF867E",
-  accent500: "#FFBDB8",
-  accent300: "#FFD7D4",
-  accent100: "#FFEEED",
-
-  success700: "#36AB80",
-  success500: "#A9DCC9",
-  success100: "#EAF7F1",
-
+  // Neutrals for light mode
   white: "#FFFFFF",
   black: "#000000",
   transparent: "transparent"
@@ -50,24 +33,40 @@ export const lightTheme = {
   mode: 'light',
   colors: {
     ...baseColors,
-    bg: baseColors.gray100,
-    bgCard: baseColors.white,
-    bgNav: "rgba(255, 255, 255, 0.9)",
-    text: baseColors.black800,
-    textSecondary: baseColors.black300,
-    textMuted: baseColors.gray900,
-    border: baseColors.gray400,
-    primary: baseColors.brand900,
-    primaryHover: baseColors.brand800,
-    primaryLight: baseColors.brand100,
-    accent: baseColors.accent900,
-    accentLight: baseColors.accent100
+    // Backgrounds
+    bg: "#FAFAFA",
+    bgCard: "#FFFFFF",
+    bgNav: "rgba(255, 255, 255, 0.92)",
+    bgHover: "#F5F5F5",
+    
+    // Text
+    text: "#171717",
+    textSecondary: "#525252",
+    textMuted: "#A3A3A3",
+    
+    // Borders
+    border: "#E5E5E5",
+    borderHover: "#D4D4D4",
+    
+    // Primary
+    primary: "#0066FF",
+    primaryHover: "#0052CC",
+    primaryLight: "#E6F0FF",
+    primaryText: "#0066FF",
+    
+    // Accent
+    accent: "#FF6B35",
+    accentLight: "#FFF0EB",
+    
+    // Success
+    success: "#059669",
+    successLight: "#D1FAE5"
   },
   shadows: {
-    sm: "0 1px 2px rgba(10, 31, 68, 0.08)",
-    md: "0 3px 6px rgba(10, 31, 68, 0.1)",
-    lg: "0 8px 16px rgba(10, 31, 68, 0.1)",
-    xl: "0 16px 32px rgba(10, 31, 68, 0.12)"
+    sm: "0 1px 2px rgba(0, 0, 0, 0.04)",
+    md: "0 2px 8px rgba(0, 0, 0, 0.08)",
+    lg: "0 8px 24px rgba(0, 0, 0, 0.12)",
+    xl: "0 16px 48px rgba(0, 0, 0, 0.16)"
   }
 }
 
@@ -75,38 +74,53 @@ export const darkTheme = {
   mode: 'dark',
   colors: {
     ...baseColors,
-    bg: baseColors.black900,
-    bgCard: baseColors.black800,
-    bgNav: "rgba(10, 31, 68, 0.95)",
-    text: baseColors.gray200,
-    textSecondary: baseColors.gray600,
-    textMuted: baseColors.gray800,
-    border: baseColors.black600,
-    primary: baseColors.brand600,
-    primaryHover: baseColors.brand500,
-    primaryLight: baseColors.black700,
-    accent: baseColors.accent700,
-    accentLight: baseColors.black700
+    // Backgrounds - TRUE BLACK
+    bg: "#000000",
+    bgCard: "#0A0A0A",
+    bgNav: "rgba(0, 0, 0, 0.92)",
+    bgHover: "#171717",
+    
+    // Text
+    text: "#FAFAFA",
+    textSecondary: "#A3A3A3",
+    textMuted: "#737373",
+    
+    // Borders
+    border: "#262626",
+    borderHover: "#404040",
+    
+    // Primary - slightly brighter for dark mode
+    primary: "#3385FF",
+    primaryHover: "#66A3FF",
+    primaryLight: "#171717",
+    primaryText: "#3385FF",
+    
+    // Accent
+    accent: "#FF8A5B",
+    accentLight: "#1A1A1A",
+    
+    // Success
+    success: "#10B981",
+    successLight: "#052E16"
   },
   shadows: {
-    sm: "0 1px 2px rgba(0, 0, 0, 0.2)",
-    md: "0 3px 6px rgba(0, 0, 0, 0.25)",
-    lg: "0 8px 16px rgba(0, 0, 0, 0.3)",
-    xl: "0 16px 32px rgba(0, 0, 0, 0.35)"
+    sm: "0 1px 2px rgba(0, 0, 0, 0.5)",
+    md: "0 2px 8px rgba(0, 0, 0, 0.6)",
+    lg: "0 8px 24px rgba(0, 0, 0, 0.7)",
+    xl: "0 16px 48px rgba(0, 0, 0, 0.8)"
   }
 }
 
 const theme = {
   fonts: {
-    primary: '"SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    mono: '"SF Mono", "Fira Code", monospace'
+    primary: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    mono: '"SF Mono", "Fira Code", "Consolas", monospace'
   },
   fontSizes: {
-    tiny: "10px",
-    caption: "11px",
+    xs: "11px",
     sm: "12px",
-    body: "13px",
-    base: "14px",
+    base: "13px",
+    md: "14px",
     lg: "15px",
     xl: "17px",
     "2xl": "20px",
@@ -152,7 +166,7 @@ const theme = {
     maxWidth: "1100px",
     padding: "16px"
   },
-  transition: "all 0.2s ease-in-out"
+  transition: "all 0.15s ease"
 }
 
 export default theme

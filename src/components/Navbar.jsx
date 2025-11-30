@@ -12,7 +12,7 @@ const Nav = styled.nav`
   right: 0;
   z-index: 1000;
   background: ${({ theme }) => theme.colors.bgNav};
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   height: 56px;
 `
@@ -25,15 +25,19 @@ const NavContainer = styled(Container)`
 `
 
 const Logo = styled(Link)`
-  font-size: 16px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.primary};
+  font-size: 15px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.text};
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `
 
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   
   @media (max-width: 768px) {
     display: none;
@@ -45,14 +49,14 @@ const NavLink = styled(Link)`
   font-size: 13px;
   font-weight: 500;
   color: ${props => props.$active 
-    ? (({ theme }) => theme.colors.primary) 
+    ? (({ theme }) => theme.colors.text) 
     : (({ theme }) => theme.colors.textSecondary)};
   border-radius: 6px;
   transition: all 0.15s ease;
   
   &:hover {
-    background: ${({ theme }) => theme.colors.primaryLight};
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.bgHover};
   }
 `
 
@@ -73,8 +77,8 @@ const IconButton = styled.button`
   transition: all 0.15s ease;
   
   &:hover {
-    background: ${({ theme }) => theme.colors.primaryLight};
-    color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.bgHover};
+    color: ${({ theme }) => theme.colors.text};
   }
 `
 
@@ -114,10 +118,11 @@ const MobileMenu = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: ${({ theme }) => theme.colors.bgCard};
+  background: ${({ theme }) => theme.colors.bg};
   padding: 16px;
   flex-direction: column;
   gap: 4px;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
   
   @media (max-width: 768px) {
     display: ${props => props.$open ? 'flex' : 'none'};
@@ -132,7 +137,7 @@ const MobileNavLink = styled(Link)`
   border-radius: 8px;
   
   &:hover {
-    background: ${({ theme }) => theme.colors.primaryLight};
+    background: ${({ theme }) => theme.colors.bgHover};
   }
 `
 

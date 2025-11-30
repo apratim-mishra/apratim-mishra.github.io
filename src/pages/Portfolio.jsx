@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FiGithub, FiExternalLink, FiBriefcase, FiCode } from 'react-icons/fi'
+import { FiGithub, FiBriefcase, FiCode } from 'react-icons/fi'
 import { Container, Section, Grid, Card, Tag } from '../components/ui'
 
 const PageHeader = styled.div`
@@ -42,12 +42,13 @@ const FilterBtn = styled.button`
     ? (({ theme }) => theme.colors.primaryLight) 
     : 'transparent'};
   color: ${props => props.$active 
-    ? (({ theme }) => theme.colors.primary) 
+    ? (({ theme }) => theme.colors.primaryText) 
     : (({ theme }) => theme.colors.textSecondary)};
   transition: all 0.15s ease;
   
   &:hover {
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.borderHover};
+    background: ${({ theme }) => theme.colors.bgHover};
   }
 `
 
@@ -58,6 +59,11 @@ const ProjectCard = styled(Card)`
   border-left: 3px solid ${props => props.$type === 'professional' 
     ? (({ theme }) => theme.colors.primary) 
     : (({ theme }) => theme.colors.accent)};
+    
+  &:hover {
+    background: ${({ theme }) => theme.colors.bgHover};
+    border-color: ${({ theme }) => theme.colors.borderHover};
+  }
 `
 
 const ProjectHeader = styled.div`
@@ -198,7 +204,7 @@ function Portfolio() {
       <Section $py="0">
         <Grid $cols="repeat(2, 1fr)" $colsSm="1fr" $gap="12px">
           {filtered.map((project, i) => (
-            <ProjectCard key={i} $type={project.type} $hover>
+            <ProjectCard key={i} $type={project.type}>
               <TypeBadge>{project.type}</TypeBadge>
               <ProjectHeader>
                 <ProjectTitle>{project.title}</ProjectTitle>
@@ -225,4 +231,3 @@ function Portfolio() {
 }
 
 export default Portfolio
-

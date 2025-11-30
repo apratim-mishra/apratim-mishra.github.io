@@ -7,7 +7,6 @@ import { Container } from './ui'
 const FooterSection = styled.footer`
   padding: 24px 0;
   border-top: 1px solid ${({ theme }) => theme.colors.border};
-  background: ${({ theme }) => theme.colors.bgCard};
 `
 
 const FooterContent = styled.div`
@@ -33,12 +32,12 @@ const SocialLinks = styled.div`
 `
 
 const SocialLink = styled.a`
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textMuted};
   font-size: 16px;
   transition: color 0.15s ease;
   
   &:hover {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.text};
   }
 `
 
@@ -48,7 +47,7 @@ function Footer() {
       <Container>
         <FooterContent>
           <Copyright>
-            2025 Apratim Mishra. Built with React.
+            2025 Apratim Mishra
           </Copyright>
           <SocialLinks>
             <SocialLink href="https://github.com/apratim-mishra" target="_blank" aria-label="GitHub">
