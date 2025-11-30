@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/posts/2012/08/blog-post-1/</loc>
+<lastmod>2012-08-14T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/markdown_generator/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/files/Resume_Apratim.pdf</loc>
+<lastmod>2025-11-29T19:40:42-06:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/paper1.pdf</loc>
+<lastmod>2025-11-29T19:40:20-06:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/paper2.pdf</loc>
+<lastmod>2025-11-29T19:40:20-06:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/paper3.pdf</loc>
+<lastmod>2025-11-29T19:40:20-06:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/talkmap/map.html</loc>
+<lastmod>2025-11-29T19:40:20-06:00</lastmod>
+</url>
+</urlset>
