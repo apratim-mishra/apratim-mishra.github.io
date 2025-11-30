@@ -10,8 +10,8 @@ redirect_from:
 <div class="profile-container">
   <div class="profile-intro">
     <h1>Apratim Mishra</h1>
-    <h2>PhD Candidate in Information Sciences</h2>
-    <p class="university">University of Illinois at Urbana-Champaign</p>
+    <h2>Machine Learning Engineer</h2>
+    <p class="university">Verizon | Ph.D. in Information Sciences, UIUC</p>
   </div>
 </div>
 
@@ -19,16 +19,16 @@ redirect_from:
 
 ## About Me
 
-Hello! I am a PhD candidate in Information Sciences at the University of Illinois at Urbana-Champaign. My research focuses on machine learning and natural language processing (NLP) applications. I'm passionate about developing innovative solutions to complex problems using advanced AI techniques.
+Hello! I am a Machine Learning Engineer at Verizon with a Ph.D. in Information Sciences from the University of Illinois at Urbana-Champaign. I specialize in developing and deploying petabyte-scale machine learning, NLP, and LLM-based models. My expertise spans ML pipeline optimization, agentic AI orchestration, and model productization for real-world enterprise applications.
 
 <div class="highlights-container">
   <div class="highlight-box">
     <h3><i class="fas fa-flask"></i> Research Interests</h3>
     <ul>
+      <li>Large Language Models & Agentic AI</li>
       <li>Natural Language Processing</li>
-      <li>Large Language Models</li>
       <li>Graph Neural Networks</li>
-      <li>Machine Learning Systems</li>
+      <li>ML Systems & Infrastructure</li>
       <li>MLOps & Cloud Computing</li>
     </ul>
   </div>
@@ -36,21 +36,21 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
   <div class="highlight-box">
     <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
     <ul>
-      <li><strong>Core ML:</strong> PyTorch, TensorFlow, Transformers, LangChain, RAG</li>
-      <li><strong>Data Science:</strong> Python (pandas, NumPy, scikit-learn, nltk), R, SQL</li>
-      <li><strong>MLOps:</strong> W&B, Comet, ZenML, Ray, DeepSpeed, Accelerate</li>
-      <li><strong>Cloud & Big Data:</strong> AWS, GCP, Apache Spark, Hive, Snowflake</li>
-      <li><strong>DevOps:</strong> Docker, Git, Linux, Kubeflow, Hopsworks</li>
+      <li><strong>Core ML:</strong> PyTorch, Transformers, LangChain, LangGraph, vLLM</li>
+      <li><strong>LLM/NLP:</strong> GPT, Claude, LiteLLM, MCP, RAG, FAISS, Pinecone</li>
+      <li><strong>MLOps:</strong> W&B, DeepSpeed, Accelerate, TensorRT, Kubeflow</li>
+      <li><strong>Cloud & Big Data:</strong> AWS (SageMaker, Bedrock, EKS), GCP, PySpark</li>
+      <li><strong>DevOps:</strong> Docker, Kubernetes, FastAPI, Git</li>
     </ul>
   </div>
   
   <div class="highlight-box">
     <h3><i class="fas fa-award"></i> Achievements</h3>
     <ul>
-      <li>Published research in top conferences</li>
-      <li>Optimized ML pipelines reducing costs by 15%</li>
-      <li>Developed production-grade NLP systems</li>
-      <li>Implemented scalable ML infrastructure</li>
+      <li>+24% training throughput for LLM fine-tuning pipelines</li>
+      <li>-15% p95 latency for production inference</li>
+      <li>Built enterprise agent platform for multi-agent workflows</li>
+      <li>Published research dataset with 300+ downloads</li>
     </ul>
   </div>
 </div>
@@ -65,20 +65,20 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
 
 <div class="projects-list">
   <div class="project-item professional">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> Protein Language Models</h4>
-    <p>Utilized protein language models (PLMs) and graph neural networks (GNNs) to derive insights and predict complex biological behaviors. Implemented optimized training pipelines with PyTorch for large-scale protein sequence analysis.</p>
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Enterprise Agent Platform</h4>
+    <p>Built a unified enterprise agent platform for domain teams to compose, version, and deploy multi-agent workflows across network, server, and business applications. Includes Agent Builder, Connector Registry, and ChatKit UI toolkit.</p>
     <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
   </div>
   
   <div class="project-item professional">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> NLP Pipeline for Quotation Extraction</h4>
-    <p>Engineered an NLP pipeline for quotation extraction and entity classification leveraging tools like spaCy and Stanford CoreNLP. The system achieved 87% accuracy on complex news article datasets.</p>
+    <h4><i class="fas fa-circle-dot fa-xs"></i> LLM Fine-tuning & Inference Pipelines</h4>
+    <p>Designed end-to-end LLM fine-tuning and inference pipelines for network/server diagnostics. Fine-tuned instruction models via SFT and RFT using SageMaker with DeepSpeed, LoRA/PEFT, and deployed quantized models with ONNX Runtime.</p>
     <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
   </div>
   
   <div class="project-item professional">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> Energy Load Prediction</h4>
-    <p>Analyzed energy load trends using Python by employing models like ARIMA, XGBoost, LightGBM, and LSTMs. Developed a predictive system that forecasts energy consumption patterns with 92% accuracy.</p>
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Citation Recommendation System</h4>
+    <p>Developed a hybrid citation recommendations system combining GNN-based link prediction with LLM-derived semantic embeddings, achieving 25% lift over BM25. Deployed on AWS SageMaker via Airflow orchestration.</p>
     <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
   </div>
 </div>
@@ -89,6 +89,38 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
 
 <div class="projects-list">
   <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Prediction Market Agent</h4>
+    <p>An AI-powered prediction market agent built with Coinbase AgentKit for Base Sepolia testnet. Features natural language interface powered by LangChain & LangGraph, smart contracts, CDP wallet integration, and multi-source price oracles.</p>
+    <div class="project-links">
+      <a href="https://github.com/apratim-mishra/prediction-market-agent" target="_blank" class="project-link">GitHub →</a>
+    </div>
+  </div>
+  
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Realtime Phone Agent System</h4>
+    <p>AI phone agent powered by open-source models on Apple Silicon via MLX. Features inbound/outbound calls via Twilio, speech-to-text with Whisper, TTS with Kokoro, agent reasoning with LangGraph, and semantic search via Pinecone.</p>
+    <div class="project-links">
+      <a href="https://github.com/apratim-mishra/phone-calling-agent" target="_blank" class="project-link">GitHub →</a>
+    </div>
+  </div>
+  
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> PartSelect Chat Agent</h4>
+    <p>A dual-mode RAG-based AI assistant for appliance parts with FastAPI, WebSockets, and React. Features multi-agent mode with triage, specialist agents, hallucination guardrails, and function-calling tools for part search and troubleshooting.</p>
+    <div class="project-links">
+      <a href="{{ site.baseurl }}/portfolio/" class="project-link">Learn More →</a>
+    </div>
+  </div>
+  
+  <div class="project-item personal">
+    <h4><i class="fas fa-circle-dot fa-xs"></i> Notion Agentic AI Assistant</h4>
+    <p>A RAG-based semantic search system using LangChain and FAISS with OpenAI/HuggingFace SDKs. Automated serverless deployment and LLMOps pipelines for end-to-end ingestion, vectorization, and response generation.</p>
+    <div class="project-links">
+      <a href="https://github.com/apratim-mishra/notion_" target="_blank" class="project-link">GitHub →</a>
+    </div>
+  </div>
+  
+  <div class="project-item personal">
     <h4><i class="fas fa-circle-dot fa-xs"></i> Yelp Restaurant Recommendations with GNNs</h4>
     <p>A Graph Neural Network (GNN) based recommendation system for restaurants using the Yelp dataset, implementing heterogeneous graph models for personalized recommendations.</p>
     <div class="project-links">
@@ -97,42 +129,10 @@ Hello! I am a PhD candidate in Information Sciences at the University of Illinoi
   </div>
   
   <div class="project-item personal">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> Notion RAG</h4>
-    <p>A Retrieval-Augmented Generation (RAG) system that leverages Notion data for AI-powered question answering and knowledge retrieval, with a Flask API and vector search integration.</p>
-    <div class="project-links">
-      <a href="https://github.com/apratim-mishra/notion_" target="_blank" class="project-link">GitHub →</a>
-    </div>
-  </div>
-  
-  <div class="project-item personal">
     <h4><i class="fas fa-circle-dot fa-xs"></i> H&M Fashion Recommendation System</h4>
     <p>A machine learning recommendation system for H&M products using a hybrid approach combining collaborative filtering and content-based methods for personalized fashion recommendations.</p>
     <div class="project-links">
       <a href="https://github.com/apratim-mishra/h_m/tree/main" target="_blank" class="project-link">GitHub →</a>
-    </div>
-  </div>
-  
-  <div class="project-item personal">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> Audio App</h4>
-    <p>A Next.js application for audio processing and playback with modern UI and advanced features. Implements Web Audio API for real-time audio manipulation.</p>
-    <div class="project-links">
-      <a href="https://github.com/apratim-mishra/audio-app" target="_blank" class="project-link">GitHub →</a>
-    </div>
-  </div>
-  
-  <div class="project-item personal">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> Expo v1</h4>
-    <p>An open-source framework for making universal native apps with React that runs on Android, iOS, and the web. Features cross-platform compatibility.</p>
-    <div class="project-links">
-      <a href="https://github.com/apratim-mishra/Expov1" target="_blank" class="project-link">GitHub →</a>
-    </div>
-  </div>
-  
-  <div class="project-item personal">
-    <h4><i class="fas fa-circle-dot fa-xs"></i> ScenicBayMapper</h4>
-    <p>A mapping application for discovering and navigating to scenic locations around the Bay Area. Integrates with Google Maps API and features location-based recommendations.</p>
-    <div class="project-links">
-      <a href="https://github.com/apratim-mishra/ScenicBayMapper" target="_blank" class="project-link">GitHub →</a>
     </div>
   </div>
 </div>

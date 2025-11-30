@@ -18,7 +18,7 @@ locale                   : "en-US"
 title                    : "Apratim Mishra"
 title_separator          : "-"
 name                     : &name "Apratim Mishra"
-description              : &description "Graduate student in Information Sciences looking for full-time opportunities"
+description              : &description "Applied Machine Learning Ph.D. professional specializing in ML systems, NLP, and LLM applications"
 url                      : https://apratim-mishra.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : apratim-mishra
@@ -31,9 +31,9 @@ author:
   avatar           : "linkedin.png"
   name             : "Apratim Mishra"
   pronouns         : # example: "she/her"  
-  bio              : "PhD student in Information Sciences"
-  location         : "Champaign, IL"
-  employer         : "UIUC"
+  bio              : "Machine Learning Engineer at Verizon"
+  location         : "Irving, TX"
+  employer         : "Verizon"
   # uri              : # URL
   email            : "apratim941208@gmail.com" 
 
@@ -131,7 +131,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : "profile.png"  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
