@@ -45,3 +45,9 @@ Thumbs.db
 
 # Backup folder (for migration)
 backup_content/
+
+# Analytics data (stored in browser localStorage, but exclude any exported files)
+analytics-*.json
+analytics-*.csv
+*.analytics.json
+*.analytics.csv

@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Portfolio from './pages/Portfolio'
 import Career from './pages/Career'
 import Research from './pages/Research'
+import Analytics from './pages/Analytics'
+import { useAnalytics } from './hooks/useAnalytics'
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -23,6 +25,8 @@ const Main = styled.main`
 `
 
 function App() {
+  useAnalytics()
+
   return (
     <AppContainer>
       <Navbar />
@@ -32,6 +36,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/career" element={<Career />} />
           <Route path="/research" element={<Research />} />
+          <Route path="/analytics" element={<Analytics />} />
         </Routes>
       </Main>
       <Footer />
