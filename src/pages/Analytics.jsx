@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { FiDownload, FiRefreshCw, FiTrash2, FiBarChart2, FiUsers, FiEye, FiClock, FiGlobe, FiMonitor, FiBrowser } from 'react-icons/fi'
+import { FiDownload, FiRefreshCw, FiTrash2, FiBarChart2, FiUsers, FiEye, FiClock, FiGlobe, FiMonitor, FiChrome } from 'react-icons/fi'
 import { Container, Section, Card, Button } from '../components/ui'
 import analytics from '../utils/analytics'
 
@@ -309,7 +309,7 @@ function Analytics() {
 
           <TopList>
             <SectionTitle>
-              <FiBrowser /> Top Browsers
+              <FiChrome /> Top Browsers
             </SectionTitle>
             {stats.topBrowsers.length > 0 ? (
               stats.topBrowsers.map((item, i) => (
