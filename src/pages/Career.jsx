@@ -300,13 +300,24 @@ const EduMeta = styled.p`
 // Data
 const experiences = [
   {
+    title: 'AI Researcher',
+    company: 'Toyota',
+    location: 'Mountain View, CA',
+    period: 'Feb 2026 - Present',
+    current: true,
+    highlights: [
+      'Research, develop, and prototype multi-agent AI frameworks for mobility',
+      'Focus on agent orchestration, tool integration, fine-tuning, evaluation, and alignment'
+    ]
+  },
+  {
     title: 'Machine Learning Engineer',
     company: 'Verizon',
     location: 'Irving, TX',
-    period: 'July 2025 - Present',
-    current: true,
+    period: 'July 2025 - Feb 2026',
+    current: false,
     highlights: [
-      'Built unified enterprise agent platform for multi-agent workflows with Agent Builder and Connector Registry',
+      'Led team of four building a network QA platform with config validation and agentic AI architectures',
       'Designed LLM fine-tuning pipelines with SFT/RFT using SageMaker, DeepSpeed, LoRA/PEFT',
       'Deployed quantized models with ONNX Runtime and Triton/TGI on Kubernetes',
       'Achieved +24% training throughput and -15% p95 latency in production'
@@ -380,7 +391,7 @@ function Career() {
       <PageHeader>
         <div>
           <h1>Career</h1>
-          <p>Building production ML systems across enterprise, research, and healthcare</p>
+          <p>Building production ML and AI research systems across automotive, enterprise, and healthcare</p>
         </div>
         <LinkButton 
           href="/files/Resume_Apratim.pdf" 

@@ -314,25 +314,25 @@ const ProjectTags = styled.div`
 
 // Data
 const skills = [
-  { 
-    title: 'ML & LLMs', 
+  {
+    title: 'ML & LLMs',
     icon: '🧠',
-    skills: ['PyTorch', 'LangChain', 'LangGraph', 'vLLM', 'RAG', 'Transformers'] 
+    skills: ['PyTorch', 'LangChain', 'LangGraph', 'vLLM', 'RAG', 'Transformers', 'LiteLLM', 'MCP', 'Unsloth']
   },
-  { 
-    title: 'MLOps', 
+  {
+    title: 'MLOps',
     icon: '⚙️',
-    skills: ['W&B', 'DeepSpeed', 'ONNX', 'Triton', 'Kubeflow', 'MLflow'] 
+    skills: ['W&B', 'DeepSpeed', 'ONNX', 'TensorRT', 'Triton', 'Kubeflow', 'MLflow', 'OpenAI SDK', 'Weaviate']
   },
-  { 
-    title: 'Cloud & Infra', 
+  {
+    title: 'Cloud & Infra',
     icon: '☁️',
-    skills: ['AWS SageMaker', 'Bedrock', 'EKS', 'GCP Vertex AI', 'Docker'] 
+    skills: ['AWS SageMaker', 'Bedrock', 'EKS', 'GCP Vertex AI', 'Docker', 'Kubernetes']
   },
-  { 
-    title: 'Data & Storage', 
+  {
+    title: 'Data & Storage',
     icon: '💾',
-    skills: ['PySpark', 'Pinecone', 'FAISS', 'PostgreSQL', 'Redis', 'MongoDB'] 
+    skills: ['PySpark', 'Pinecone', 'FAISS', 'PostgreSQL', 'Redis', 'MongoDB']
   }
 ]
 
@@ -371,7 +371,7 @@ function Home() {
             <HeroGreeting>Hello, I'm</HeroGreeting>
             <HeroName>Apratim Mishra</HeroName>
             <HeroTitle>
-              Machine Learning Engineer at <span>Verizon</span>
+              AI Researcher at <span>Toyota</span>
             </HeroTitle>
             <HeroBio>
               Applied ML PhD with expertise in deploying petabyte-scale ML, NLP, and LLM systems.

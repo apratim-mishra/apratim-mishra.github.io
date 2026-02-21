@@ -301,6 +301,13 @@ const projects = [
     github: 'https://github.com/apratim-mishra/notion_'
   },
   {
+    title: 'Sound AI',
+    desc: 'Multi-agent music generation platform using CrewAI and Suno AI. Three-agent workflow for research, lyric generation, and music creation.',
+    type: 'personal',
+    tags: ['CrewAI', 'Suno AI', 'Streamlit', 'Docker'],
+    github: null
+  },
+  {
     title: 'Yelp Restaurant GNN Recommendations',
     desc: 'Graph Neural Network recommendations using Yelp dataset. Heterogeneous graph models with GAT and Transformer layers.',
     type: 'personal',
