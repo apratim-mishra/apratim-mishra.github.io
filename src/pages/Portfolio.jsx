@@ -305,7 +305,7 @@ const projects = [
     desc: 'Multi-agent music generation platform using CrewAI and Suno AI. Three-agent workflow for research, lyric generation, and music creation.',
     type: 'personal',
     tags: ['CrewAI', 'Suno AI', 'Streamlit', 'Docker'],
-    github: null
+    github: 'https://github.com/apratim-mishra/s_ai'
   },
   {
     title: 'Yelp Restaurant GNN Recommendations',
